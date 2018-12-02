@@ -201,10 +201,10 @@
                         <div class="tabs tabs-alt tabs-responsive tabs-justify clearfix" id="tab">
 
                             <ul class="tab-nav clearfix">
-                                <li><a href="#tabs-1"><i class="icon-line2-key"></i>24x7 Available</a></li>
-                                <li><a href="#tabs-2"><i class="icon-line2-social-dropbox"></i>Complete Solutions</a></li>
-                                <li><a href="#tabs-3"><i class="icon-line2-drop"></i>Water Treatments</a></li>
-                                <li><a href="#tabs-4"><i class="icon-line2-pointer"></i>Location Independant</a></li>
+                                <li><a href="#tabs-1"><i class="icon-line2-key"></i>Anonymous Reviews</a></li>
+                                <li><a href="#tabs-2"><i class="icon-line2-social-dropbox"></i>Private Reviews</a></li>
+                                <li><a href="#tabs-3"><i class="icon-line2-drop"></i>Public Reviews</a></li>
+                                <li><a href="#tabs-4"><i class="icon-line2-pointer"></i>Solutions</a></li>
                             </ul>
 
                             <div class="tab-container">
@@ -215,10 +215,10 @@
                                             <img src="demos/interior-design/images/story/1.jpg" alt="story-image">
                                         </div>
                                         <div class="story-box-info">
-                                            <h3 class="story-title">We help people to create new Website.</h3>
+                                            <h3 class="story-title">You don't need to worry about revealing your identities</h3>
                                             <div class="story-box-content">
-                                                <p>Uniquely productize cross-unit action items with multifunctional imperatives. Quickly communicate collaborative relationships rather than timely materials. Progressively foster unique interfaces vis-a-vis backend e-services.</p>
-                                                <button class="t300 button noleftmargin button-rounded">Read Canvas's story</button>
+                                                <p>The core focus is on getting genuine reviews of anything without revealing your identities. Reviewer details are never shared with anyone.</p>
+                                                <a href="/register" class="t300  noleftmargin button-rounded">Register to see</a> 
                                             </div>
                                         </div>
                                     </div>
@@ -229,10 +229,10 @@
                                             <img src="demos/interior-design/images/story/2.jpg" alt="story-image">
                                         </div>
                                         <div class="story-box-info">
-                                            <h3 class="story-title">Get better results tomorrow by reading this post.</h3>
+                                            <h3 class="story-title">Private Reviews</h3>
                                             <div class="story-box-content">
-                                                <p>Progressively streamline future-proof networks rather than virtual channels. Intrinsicly architect performance based products with B2C communities. Appropriately underwhelm integrated information via superior platforms.</p>
-                                                <button class="t300 button noleftmargin button-rounded">Read More</button>
+                                                <p>You can get reviews from everyone you asked privately from your workplace</p>
+                                                <a href="/login" class="t300  noleftmargin button-rounded">Login</a> 
                                             </div>
                                         </div>
                                     </div>
@@ -243,10 +243,10 @@
                                             <img src="demos/interior-design/images/story/3.jpg" alt="story-image">
                                         </div>
                                         <div class="story-box-info">
-                                            <h3 class="story-title">TK’s recipe of the week: Guiness beef stew.</h3>
+                                            <h3 class="story-title">Public Reviews</h3>
                                             <div class="story-box-content">
-                                                <p>Compellingly synthesize technically sound users without technically sound vortals. Rapidiously redefine maintainable leadership with multifunctional strategic theme areas. Appropriately plagiarize business ideas vis-a-vis.</p>
-                                                <button class="t300 button noleftmargin button-rounded">Read About Me</button>
+                                                <p>You can get the reviews from anyone on the public domain, without them asking for registering on the website.</p>
+                                                <a href="/login" class="t300  noleftmargin button-rounded">Login</a> 
                                             </div>
                                         </div>
                                     </div>
@@ -257,10 +257,10 @@
                                             <img src="demos/interior-design/images/story/4.jpg" alt="story-image">
                                         </div>
                                         <div class="story-box-info">
-                                            <h3 class="story-title">We help people to create new Website.</h3>
+                                            <h3 class="story-title">Custom based Solutions</h3>
                                             <div class="story-box-content">
-                                                <p>Dynamically exploit cross-platform sources vis-a-vis scalable paradigms. Efficiently plagiarize multifunctional internal or "organic" sources before intuitive innovation. Synergistically facilitate goal-oriented ROI vis-a-vis client-focused.</p>
-                                                <a href="#">Read Deanne's story</a>
+                                                <p>Its time for appraisals, its product review time, HR policies.. No worries, we got you covered for all the custom built solutions for the needs.</p>
+                                                <a href="/contact" class="t300  noleftmargin button-rounded">Contact us</a>
                                             </div>
                                         </div>
                                     </div>
@@ -276,10 +276,10 @@
                 <div class="container clearfix">
 
                     <div class="emphasis-title center divcenter" style="max-width: 800px">
-                        <h2 class="font-secondary nott t700">3,583 happy homeowners and counting...</h2>
+                        <h2 class="font-secondary nott t700">1000 of companies using and satisfied...</h2>
                     </div>
 
-                    <div class="row bottommargin clearfix">
+ <!--                   <div class="row bottommargin clearfix">
                         <div class="col-lg-10 offset-lg-1 col-12">
                             <div class="review-row center">
                                 <h6>Top Best Reviews of Canvas</h6>
@@ -385,13 +385,14 @@
                         </div>
                     </div>
 
+-->
                     <div class="col_one_third nobottommargin">
                         <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
                             <div class="fbox-icon">
                                 <i class="icon-line2-home"></i>
                             </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Commercial &amp; Personal Use</h3>
-                            <p style="font-size: 16px;">Proactively reintermediate B2C infomediaries before multimedia methods of empowerment.</p>
+                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Simple Pricing</h3>
+                            <p style="font-size: 16px;">Simple pricing based on users.</p>
                         </div>
                     </div>
                     <div class="col_one_third nobottommargin">
@@ -399,8 +400,8 @@
                             <div class="fbox-icon">
                                 <i class="icon-line2-compass"></i>
                             </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Vaastu Compliant</h3>
-                            <p style="font-size: 16px;">Uniquely formulate principle-centered applications after just in time opportunities.</p>
+                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Secured Reviews</h3>
+                            <p style="font-size: 16px;">Choose to use your own mail server and keep it complete secure within your premises</p>
                         </div>
                     </div>
                     <div class="col_one_third nobottommargin col_last">
@@ -408,8 +409,8 @@
                             <div class="fbox-icon">
                                 <i class="icon-line2-directions"></i>
                             </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Great Location</h3>
-                            <p style="font-size: 16px;">Collaboratively reinvent ubiquitous functionalities vis future-proof systems.</p>
+                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Cloud or In-premise Setup</h3>
+                            <p style="font-size: 16px;">Choose to get the setup installed at cloud or your in-premise</p>
                         </div>
                     </div>
                 </div>
@@ -422,64 +423,7 @@
         ============================================= -->
         <footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">
 
-            <div class="container clearfix">
-
-                <!-- Footer Widgets
-                ============================================= -->
-                <div class="footer-widgets-wrap clearfix">
-
-                    <div class="col_one_fourth">
-                        <div class="widget clearfix">
-                            <div class="t400 lowercase nobottommargin" style="font-size: 36px; letter-spacing: -1px">Canvas</div>
-                            <p class="text-muted t300">@2017</p>
-
-                            <div class="app-links">
-                                <p>Get the app</p>
-                                <a href="#" class="link"><i class="icon-android2"></i> <span>Download for Android</span></a><br>
-                                <a href="#" class="link"><i class="icon-apple"></i> <span>Download for IOS</span></a><br>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col_one_fourth">
-                        <div class="widget widget_links clearfix">
-                            <h4>Blogroll</h4>
-                            <ul>
-                                <li><a href="#">Documentation</a></li>
-                                <li><a href="#">Feedback</a></li>
-                                <li><a href="#">Plugins</a></li>
-                                <li><a href="#">Support Forums</a></li>
-                                <li><a href="#">Themes</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col_one_fourth">
-                        <div class="widget widget_links clearfix">
-                            <h4>Links</h4>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">FAQs</a></li>
-                                <li><a href="#">Licence</a></li>
-                                <li><a href="#">Forums</a></li>
-                                <li><a href="#">Terms</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col_one_fourth col_last">
-                        <div class="widget widget-twitter-feed clearfix">
-                            <h4>Twitter Feed</h4>
-                            <ul class="iconlist twitter-feed nobottommargin" data-username="envato" data-count="2">
-                                <li></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div><!-- .footer-widgets-wrap end -->
-
-            </div>
+          
 
             <div class="line nomargin"></div>
 
@@ -490,7 +434,7 @@
                 <div class="container clearfix">
 
                     <div class="col_full center nomargin">
-                        <span>Copyrights &copy; 2017 All Rights Reserved by Canvas Inc.</span>
+                        <span>Copyrights &copy; 2018 All Rights Reserved by AskPls.</span>
                     </div>
 
                 </div>
