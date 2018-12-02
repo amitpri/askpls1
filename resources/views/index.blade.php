@@ -106,8 +106,8 @@
                             <!-- Logo
                             ============================================= -->
                             <div id="logo">
-                                <a href="demo-interior-design.html" class="standard-logo"><img src="images/logo.png" alt="Canvas Logo"></a>
-                                <a href="demo-interior-design.html" class="retina-logo"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+                                <a href="/" class="standard-logo"><img src="images/logo.png" alt="Canvas Logo"></a>
+                                <a href="/" class="retina-logo"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
                             </div><!-- #logo end -->
 
                         </div>
