@@ -7,6 +7,13 @@ use Laravel\Nova\Cards\Help;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
+use App\Nova\Metrics\ProfileCount;
+use App\Nova\Metrics\GroupCount;
+use App\Nova\Metrics\TopicCount;
+use App\Nova\Metrics\ReviewCount;
+
+
+
 use App\Nova\Profile;
 use App\Nova\Group;
 use App\Nova\Topic;
@@ -93,7 +100,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            new GroupCount,
+            new ProfileCount,
+            new ReviewCount,
+            new TopicCount,
         ];
     }
 
