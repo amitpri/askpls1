@@ -18,6 +18,8 @@ use App\Nova\Actions\EmailTopicGroup;
 
 use Outhebox\NovaHiddenField\HiddenField;
 
+use OwenMelbz\RadioField\RadioButton;
+
 class Topic extends Resource
 { 
 
@@ -46,16 +48,23 @@ class Topic extends Resource
 
             HiddenField::make('User', 'user_id')->current_user_id(),
 
-            Text::make('Topic Name')->sortable()->rules('required', 'max:255'),
+            Text::make('Topic Name')->sortable()->rules('required', 'max:255'), 
 
-            Select::make('Type')->options([
+            RadioButton::make('Type')
+            ->options([
                 'Private' => 'Private',
-                'Public' => 'Public', 
-            ])->sortable()->rules('required', 'max:255'),
+                'Public' => 'Public',
+            ])
+            ->default('Private') // optional
+    //        ->stack() // optional (required to show hints)
+    //        ->marginBetween() // optional
+            ->skipTransformation() // optional
+  //          ->toggle([  // optional
+   //             1 => ['max_skips', 'skip_sponsored'] // will hide max_skips and skip_sponsored when the value is 1
+   //         ]), 
+            ,
   
             Trix::make('Details')->alwaysShow()->rules('required', 'max:4000'),
-
-            
 
             BelongsToMany::make('Group'),
 
