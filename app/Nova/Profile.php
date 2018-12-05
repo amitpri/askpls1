@@ -21,7 +21,7 @@ class Profile extends Resource
      *
      * @var string
      */
-    public static $group = '1.Review Setup';
+    public static $group = '1.Setup';
 
     public static $model = 'App\Profile';
 

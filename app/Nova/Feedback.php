@@ -12,9 +12,15 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class Feedback extends Resource
 {
 
-    public static $group = '2.Feedback';
+    public static $group = '2.Reviews';
 
     public static $model = 'App\Feedback';
+
+    public static function label() {
+
+        return 'Reviews -  Provide';
+
+    }
 
     /**
      * The single value that should be used to represent the resource when being displayed.

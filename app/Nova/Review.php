@@ -16,13 +16,19 @@ class Review extends Resource
      * @var string
      */
 
-    public static $group = '1.Review Setup';
+    public static $group = '2.Reviews';
     
 
     public static $model = 'App\Review';
 
  
     public static $title = 'id';
+
+    public static function label() {
+
+        return 'Reviews -  Received';
+
+    }
 
  
     public static $search = [

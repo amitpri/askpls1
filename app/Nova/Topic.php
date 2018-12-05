@@ -23,7 +23,7 @@ use OwenMelbz\RadioField\RadioButton;
 class Topic extends Resource
 { 
 
-    public static $group = '1.Review Setup';
+    public static $group = '2.Reviews';
     
     public static $model = 'App\Topic';
  
@@ -39,14 +39,14 @@ class Topic extends Resource
  
 
         return [
-            ID::make()->sortable(),
+            ID::make()->sortable()->hideFromIndex(),
 
     //        Text::make('User Id')
     //                ->withMeta(['value' => $loggedinid, 'extraAttributes' => [
     //                      'readonly' => true,
     //                ]  ])->hideFromDetail(),
 
-            HiddenField::make('User', 'user_id')->current_user_id(),
+            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
 
             Text::make('Topic Name')->sortable()->rules('required', 'max:255'), 
 
