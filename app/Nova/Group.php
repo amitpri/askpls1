@@ -4,7 +4,8 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
+
+use Laravel\Nova\Fields\Textarea;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest; 
@@ -54,11 +55,11 @@ class Group extends Resource
         return [
             ID::make()->sortable(),
 
-            HiddenField::make('User', 'user_id')->current_user_id(),
+            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
 
             Text::make('Title')->rules('required', 'max:255'),
 
-            Trix::make('Body'),
+            Textarea::make('Body'),
  
             BelongsToMany::make('Profiles'),
 

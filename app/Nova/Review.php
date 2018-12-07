@@ -24,11 +24,7 @@ class Review extends Resource
  
     public static $title = 'id';
 
-    public static function label() {
-
-        return 'Reviews -  Received';
-
-    }
+ 
 
  
     public static $search = [

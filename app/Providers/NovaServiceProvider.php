@@ -48,7 +48,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 Setting::class,
       //          Company::class,
 
-                Feedback::class
+//                Feedback::class
 
                 
 

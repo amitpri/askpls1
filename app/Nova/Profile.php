@@ -38,7 +38,7 @@ class Profile extends Resource
         return [
             ID::make()->sortable(),
 
-            HiddenField::make('User', 'user_id')->current_user_id(),
+            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
 
             Text::make('Name')->sortable()->rules('required', 'max:255'),
 

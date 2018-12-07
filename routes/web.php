@@ -31,3 +31,8 @@ Route::get('/cxo', 'IndexController@cxo');
 Route::get('/prices', 'IndexController@prices'); 
 Route::get('/faqs', 'IndexController@faqs'); 
 Route::get('/contact', 'IndexController@contact'); 
+
+Route::get('/review/default', 'ReviewController@default');
+Route::get('/review/draft', 'ReviewController@draft');
+Route::get('/review/save', 'ReviewController@save');
+Route::get('/review/{key}', 'ReviewController@review');

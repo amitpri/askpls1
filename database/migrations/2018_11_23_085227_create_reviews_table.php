@@ -18,8 +18,11 @@ class CreateReviewsTable extends Migration
             $table->integer('tenant_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('topic_id')->unsigned()->nullable();
+            $table->integer('profile_id')->unsigned()->nullable(); 
             $table->string('topic_name')->nullable(); 
             $table->text('review')->nullable();  
+            $table->integer('published')->unsigned()->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

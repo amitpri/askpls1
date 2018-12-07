@@ -2,6 +2,7 @@
 
 namespace App\Nova\Actions;
 
+use Auth;
 use Illuminate\Bus\Queueable;
 use Laravel\Nova\Actions\Action;
 use Illuminate\Support\Collection;
@@ -14,44 +15,74 @@ use Illuminate\Http\Request;
 use App\Mail\MailTopicGroup;
 use App\Jobs\SendMail;
 
+use App\Topic;
+use App\TopicGroup;
+use App\Group;
+use App\Profile;
+use App\GroupProfile;
+use App\TopicMail;
+
 class EmailTopicGroup extends Action implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * Perform the action on the given models.
-     *
-     * @param  \Laravel\Nova\Fields\ActionFields  $fields
-     * @param  \Illuminate\Support\Collection  $models
-     * @return mixed
-     */
+//    public $connection = 'redis';
+
+//    public $queue = 'emails';
+
     public function handle(ActionFields $fields, Collection $models)
     {
-   //     $groupinput = $request->group;
+ 
+        foreach ($models as $model) {
+ 
+            $topic_id = $model->id;
+            $user_id = $model->user_id;
+            $loggedinid = Auth::user()->id;
 
-   //     $topicid = $request->topicid;
 
-    //    $loggedinid = Auth::user()->id;
+             
+            $groups = Topic::find($topic_id)->group()->get();
 
-    //    $groups = Group::
-    //            where('user_id', '=' , $loggedinid)-> 
-   //             where('name', '=' , "$groupinput")->
-   //             first(['id']);
+            foreach ($groups as $group) {
 
-     //   $groupid = $groups->id;
-         
-   //     $job = new SendMail($groupid, $topicid);
-        $job = new SendMail();
+                $group_id = $group->id;
 
-       
-        $toemailid = "amitpri@gmail.com";
-        $profileid = 1;
-        $mailkey = str_random(50);  
-        $topicname = "Hi";
-        $username = "Amit";
+                $profiles = Group::find($group_id)->profiles()->get();
+ 
+                foreach ($profiles as $profile) {
+ 
+ 
+                    $emailid = $profile->emailid;
+                    $profileid = $profile->id; 
+                    $mailkey = str_random(50); 
 
-       \Mail::to($toemailid)->queue(new MailTopicGroup($topicname,$username,$mailkey));
-     //   $this->dispatch($job);
+                    $topicname = "Hi";
+                    $username = "Amit";
+
+                    $newmail = TopicMail::create([
+
+                        'user_id' => $loggedinid,
+                        'topic_id' => $topic_id,
+                        'group_id' => $group_id,
+                        'profile_id' => $profileid,
+                        'emailid' => $emailid,
+                        'mailkey' => $mailkey,
+
+                    ]);
+
+                     \Mail::to($emailid)->queue(new MailTopicGroup($topicname,$username,$mailkey));
+
+                }
+
+
+            }
+ 
+             
+            
+
+        }
+
+     
     }
 
     /**
@@ -61,6 +92,10 @@ class EmailTopicGroup extends Action implements ShouldQueue
      */
     public function fields()
     {
-        return [];
+        return [
+
+        //Text::make('Subject'),
+
+        ];
     }
 }
