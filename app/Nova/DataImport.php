@@ -3,37 +3,26 @@
 namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
-
-use Laravel\Nova\Fields\Textarea;
-
 use Illuminate\Http\Request;
-use Laravel\Nova\Http\Requests\NovaRequest; 
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-use App\Nova\Metrics\GroupCount; 
-
-use Laravel\Nova\Fields\BelongsToMany;
-
-use Outhebox\NovaHiddenField\HiddenField;
-
-class Group extends Resource
+class DataImport extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
+    public static $group = "3.Admin";
 
-    public static $group = '1.Setup';
-
-    public static $model = 'App\Group';
+    public static $model = 'App\DataImport';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -44,6 +33,11 @@ class Group extends Resource
         'id',
     ];
 
+    public static function searchable()
+    {
+        return false;
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -53,19 +47,7 @@ class Group extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->hideFromIndex(),
-
-            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
-
-            Text::make('Group Id', 'group_id')->sortable(),
-
-            Text::make('Title')->rules('required', 'max:255'),
-
-            Textarea::make('Body'),
- 
-            BelongsToMany::make('Profiles')->searchable(),
-
-            BelongsToMany::make('Topics')->searchable()
+            ID::make()->sortable(),
         ];
     }
 
@@ -78,7 +60,10 @@ class Group extends Resource
     public function cards(Request $request)
     {
         return [
- 
+
+            new \Sparclex\NovaImportCard\NovaImportCard(\App\Nova\Profile::class),
+            new \Sparclex\NovaImportCard\NovaImportCard(\App\Nova\Group::class),
+            new \Sparclex\NovaImportCard\NovaImportCard(\App\Nova\GroupProfile::class),
 
         ];
     }

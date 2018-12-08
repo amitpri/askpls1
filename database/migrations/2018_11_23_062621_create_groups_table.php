@@ -20,6 +20,7 @@ class CreateGroupsTable extends Migration
             $table->integer('profile_id')->unsigned()->nullable(); 
             $table->string('title')->nullable();
             $table->text('body')->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

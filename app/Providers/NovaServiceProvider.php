@@ -13,9 +13,10 @@ use App\Nova\Metrics\TopicCount;
 use App\Nova\Metrics\ReviewCount;
 
 
-
 use App\Nova\Profile;
 use App\Nova\Group;
+use App\Nova\GroupProfile;
+use App\Nova\DataImport;
 use App\Nova\Topic;
 use App\Nova\Review;
 use App\Nova\Account;
@@ -40,6 +41,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 Topic::class,
                 Review::class, 
                 Account::class,
+                GroupProfile::class,
+                DataImport::class,
                 
        //         Member::class,
        //         Invite::class,

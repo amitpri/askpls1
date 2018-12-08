@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Builder;
 
 class GroupProfile extends Model
 {
+    protected $fillable = [
+
+        'group_id', 'profile_id' , 'user_id'
+    ];
+
     protected static function boot()
     {
         parent::boot();

@@ -36,9 +36,11 @@ class Profile extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->hideFromIndex(),
 
             HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
+
+            Text::make('Profile Id', 'profile_id')->sortable(),
 
             Text::make('Name')->sortable()->rules('required', 'max:255'),
 
@@ -59,8 +61,7 @@ class Profile extends Resource
     public function cards(Request $request)
     {
         return [
-
-            new \Sparclex\NovaImportCard\NovaImportCard(\App\Nova\Profile::class),
+ 
 
         ];
     }

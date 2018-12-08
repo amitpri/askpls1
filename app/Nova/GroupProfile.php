@@ -4,36 +4,30 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-
-use Laravel\Nova\Fields\Textarea;
-
 use Illuminate\Http\Request;
-use Laravel\Nova\Http\Requests\NovaRequest; 
-
-use App\Nova\Metrics\GroupCount; 
-
-use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 use Outhebox\NovaHiddenField\HiddenField;
 
-class Group extends Resource
+class GroupProfile extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-
     public static $group = '1.Setup';
 
-    public static $model = 'App\Group';
+    public static $displayInNavigation = false;
+
+    public static $model = 'App\GroupProfile';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -53,19 +47,10 @@ class Group extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->hideFromIndex(),
-
+            ID::make()->sortable(),
             HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
-
             Text::make('Group Id', 'group_id')->sortable(),
-
-            Text::make('Title')->rules('required', 'max:255'),
-
-            Textarea::make('Body'),
- 
-            BelongsToMany::make('Profiles')->searchable(),
-
-            BelongsToMany::make('Topics')->searchable()
+            Text::make('Profile Id', 'profile_id')->sortable(),
         ];
     }
 
@@ -78,7 +63,7 @@ class Group extends Resource
     public function cards(Request $request)
     {
         return [
- 
+  
 
         ];
     }
