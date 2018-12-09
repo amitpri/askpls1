@@ -22,7 +22,7 @@ use App\Profile;
 use App\GroupProfile;
 use App\TopicMail;
 
-class EmailTopicGroup extends Action implements ShouldQueue
+class EmailTopicGroup extends Action // implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels;
 
@@ -32,16 +32,18 @@ class EmailTopicGroup extends Action implements ShouldQueue
 
     public function handle(ActionFields $fields, Collection $models)
     {
- 
+     //   sleep(10);
+     //   dd("AMIT");
         foreach ($models as $model) {
  
             $topic_id = $model->id;
             $user_id = $model->user_id;
             $loggedinid = Auth::user()->id;
 
-
-             
+   //          dd($topic_id);
             $groups = Topic::find($topic_id)->group()->get();
+
+     //       dd($groups);
 
             foreach ($groups as $group) {
 

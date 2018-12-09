@@ -23,7 +23,7 @@ class TestAction extends Action implements ShouldQueue
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        sleep(4);
+        sleep(10);
     }
 
     public function fields()
