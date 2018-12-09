@@ -7,12 +7,14 @@ use App\Account;
 use App\Feedback;
 use App\GroupProfile;
 use App\DataImport;
+use App\Topic;
 
 use App\Policies\ReviewPolicy;
 use App\Policies\AccountPolicy;
 use App\Policies\FeedbackPolicy;
 use App\Policies\GroupProfilePolicy;
 use App\Policies\DataImportPolicy;
+use App\Policies\TopicPolicy;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -27,6 +29,7 @@ class AuthServiceProvider extends ServiceProvider
         Feedback::class => FeedbackPolicy::class,
         GroupProfile::class => GroupProfilePolicy::class,
         DataImport::class => DataImportPolicy::class,
+    //    Topic::class => TopicPolicy::class,
     ];
 
  

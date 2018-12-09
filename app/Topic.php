@@ -2,8 +2,7 @@
 
 namespace App;
 
-use Auth;
-use Laravel\Nova\Actions\Actionable;
+use Auth; 
 use Illuminate\Notifications\Notifiable;
 
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Topic extends Model
 {
-    use Actionable, Notifiable;
+    use  Notifiable;
 
     public function group()
     {

@@ -15,6 +15,7 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
 
 use App\Nova\Actions\EmailTopicGroup;
+use App\Nova\Actions\TestAction;
 
 use Outhebox\NovaHiddenField\HiddenField;
 
@@ -33,7 +34,7 @@ class Topic extends Resource
         
         'id', 'topic_name' , 'type'
     ];
- 
+  
     public function fields(Request $request)
     {
  
@@ -46,7 +47,7 @@ class Topic extends Resource
     //                      'readonly' => true,
     //                ]  ])->hideFromDetail(),
 
-            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
+            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
 
             Text::make('Topic Name')->sortable()->rules('required', 'max:255'), 
 
@@ -95,7 +96,8 @@ class Topic extends Resource
     {
         return [
 
-            new EmailTopicGroup
+            new EmailTopicGroup,
+            new TestAction,
         ];
     }
 }

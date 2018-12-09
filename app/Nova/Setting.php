@@ -51,9 +51,8 @@ class Setting extends Resource
             HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
 
             Select::make('Key')->options([
-                'S' => 'Small',
-                'M' => 'Medium',
-                'L' => 'Large',
+                '1' => 'Recieves Marketing Mail',
+                'M' => 'Profile Searchable', 
             ])->sortable()
                 ->rules('required', 'max:255'),
 

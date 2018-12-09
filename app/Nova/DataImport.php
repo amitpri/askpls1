@@ -17,6 +17,12 @@ class DataImport extends Resource
 
     public static $model = 'App\DataImport';
 
+    public static function label() {
+
+        return 'Data Imports';
+
+    }
+
     /**
      * The single value that should be used to represent the resource when being displayed.
      *

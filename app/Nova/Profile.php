@@ -29,16 +29,16 @@ class Profile extends Resource
 
     public static $search = [
 
-        'id', 'name', 'emailid' , 'phone'
+        'id', 'profile_id' , 'name', 'emailid' , 'phone'
     ];
 
  
     public function fields(Request $request)
     {
         return [
-            ID::make()->hideFromIndex(),
+            ID::make()->sortable(),
 
-            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
+            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
 
             Text::make('Profile Id', 'profile_id')->sortable(),
 

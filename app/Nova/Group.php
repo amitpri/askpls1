@@ -41,7 +41,7 @@ class Group extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'title'
     ];
 
     /**
@@ -53,12 +53,10 @@ class Group extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->hideFromIndex(),
+            ID::make()->sortable(),
 
-            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
-
-            Text::make('Group Id', 'group_id')->sortable(),
-
+            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
+ 
             Text::make('Title')->rules('required', 'max:255'),
 
             Textarea::make('Body'),
