@@ -97,7 +97,7 @@ class Topic extends Resource
         return [
 
             new EmailTopicGroup,
-            new TestAction,
+       //     new TestAction,
         ];
     }
 }
