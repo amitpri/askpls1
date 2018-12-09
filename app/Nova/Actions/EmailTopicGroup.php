@@ -25,15 +25,11 @@ use App\TopicLog;
 
 class EmailTopicGroup extends Action // implements ShouldQueue
 {
-    use InteractsWithQueue, Queueable, SerializesModels;
-
-//    public $connection = 'redis';
-
-//    public $queue = 'emails';
+    use InteractsWithQueue, Queueable, SerializesModels; 
 
     public function handle(ActionFields $fields, Collection $models)
     {
-     //   sleep(10);
+     
      //   dd("AMIT");
         foreach ($models as $model) {
  

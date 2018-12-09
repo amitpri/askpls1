@@ -10,6 +10,7 @@ use App\DataImport;
 use App\Topic;
 use App\TopicLog;
 use App\TopicMail;
+use App\Job;
 
 use App\Policies\ReviewPolicy;
 use App\Policies\AccountPolicy;
@@ -19,6 +20,7 @@ use App\Policies\DataImportPolicy;
 use App\Policies\TopicPolicy;
 use App\Policies\TopicLogPolicy;
 use App\Policies\TopicMailPolicy;
+use App\Policies\PendingJobsPolicy;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -35,6 +37,7 @@ class AuthServiceProvider extends ServiceProvider
         DataImport::class => DataImportPolicy::class,
         TopicLog::class => TopicLogPolicy::class,
         TopicMail::class => TopicMailPolicy::class,
+        Job::class => PendingJobsPolicy::class,
     ];
 
  

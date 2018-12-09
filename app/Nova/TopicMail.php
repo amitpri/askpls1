@@ -12,7 +12,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class TopicMail extends Resource
 {
     
-    public static $group = '2.Reviews';
+    public static $group = '3.Admin';
 
     public static $model = 'App\TopicMail';
 
@@ -22,28 +22,18 @@ class TopicMail extends Resource
 
     }
 
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
-    public static $title = 'id';
+    public static function uriKey() :string
+    {
+        return 'topic_mails';
+    }
 
-    /**
-     * The columns that should be searched.
-     *
-     * @var array
-     */
+    public static $title = 'id';
+ 
     public static $search = [
         'id',
     ];
 
-    /**
-     * Get the fields displayed by the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
+ 
     public function fields(Request $request)
     {
         return [

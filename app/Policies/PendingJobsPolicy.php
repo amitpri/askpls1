@@ -3,14 +3,15 @@
 namespace App\Policies;
 
 use App\User;
-use App\TopicLog;
+use App\Job;
+
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TopicLogPolicy
+class PendingJobsPolicy
 {
     use HandlesAuthorization;
 
-    public function view(User $user, TopicLog $topiclog)
+    public function view(User $user, Job $job)
     {
         return 1 === 1;
     }
@@ -33,7 +34,7 @@ class TopicLogPolicy
      * @param  \App\Review  $review
      * @return mixed
      */
-    public function update(User $user, TopicLog $topiclog)
+    public function update(User $user, Job $job)
     {
         return 1 === 2;
     }
@@ -45,7 +46,7 @@ class TopicLogPolicy
      * @param  \App\Review  $review
      * @return mixed
      */
-    public function delete(User $user, TopicLog $topiclog)
+    public function delete(User $user, Job $job)
     {
         return 1 === 1;
     }
@@ -57,7 +58,7 @@ class TopicLogPolicy
      * @param  \App\Review  $review
      * @return mixed
      */
-    public function restore(User $user, TopicLog $topiclog)
+    public function restore(User $user, Job $job)
     {
         //
     }
@@ -69,7 +70,7 @@ class TopicLogPolicy
      * @param  \App\Review  $review
      * @return mixed
      */
-    public function forceDelete(User $user, TopicLog $topiclog)
+    public function forceDelete(User $user, Job $job)
     {
         //
     }

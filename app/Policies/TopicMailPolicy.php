@@ -12,7 +12,7 @@ class TopicMailPolicy
 
     public function view(User $user, TopicMail $topicmail)
     {
-        return 1 === 2;
+        return 1 === 1;
     }
 
     /**
@@ -47,7 +47,7 @@ class TopicMailPolicy
      */
     public function delete(User $user, TopicMail $topicmail)
     {
-        return 1 === 2;
+        return 1 === 1;
     }
 
     /**

@@ -9,24 +9,24 @@ use Laravel\Nova\Fields\DateTime;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class TopicLog extends Resource
+class Job extends Resource
 {
-     
+    
     public static $group = '3.Admin';
 
-    public static $model = 'App\TopicLog';
+    public static $model = 'App\Job';
 
     public static function label() {
 
-        return 'Topic Logs';
+        return 'Pending Jobs';
 
     }
 
-    public static function uriKey() :string
-    {
-        return 'topic_logs';
-    }
-
+    /**
+     * The single value that should be used to represent the resource when being displayed.
+     *
+     * @var string
+     */
     public static $title = 'id';
 
     /**
@@ -38,21 +38,29 @@ class TopicLog extends Resource
         'id',
     ];
 
- 
+    /**
+     * Get the fields displayed by the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),            
+            ID::make()->sortable(),           
 
-            Text::make('Topic Id', 'topic_id')->sortable()->hideFromIndex()->hideFromDetail(),
+            Text::make('Queue', 'queue'),            
 
-            Text::make('Topic Name')->sortable()->rules('required', 'max:255'), 
+            Text::make('Reserved At', 'reserved_at')->sortable(),
 
-            Text::make('Group Id', 'group_id')->sortable()->hideFromIndex()->hideFromDetail(),
- 
-            Text::make('Group Title')->sortable()->rules('required', 'max:255'),  
+            Text::make('Available At', 'available_at')->sortable(),
 
             DateTime::make('Created At')->sortable(),
+
+            Text::make('Attempts', 'attempts')->sortable()->hideFromIndex()->hideFromDetail(),
+ 
+            Text::make('Payload')->sortable()->rules('required', 'max:255'), 
+            
         ];
     }
 
