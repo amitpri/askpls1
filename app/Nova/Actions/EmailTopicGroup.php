@@ -21,6 +21,7 @@ use App\Group;
 use App\Profile;
 use App\GroupProfile;
 use App\TopicMail;
+use App\TopicLog;
 
 class EmailTopicGroup extends Action // implements ShouldQueue
 {
@@ -48,6 +49,17 @@ class EmailTopicGroup extends Action // implements ShouldQueue
             foreach ($groups as $group) {
 
                 $group_id = $group->id;
+
+                $newtopiclog = TopicLog::create([
+
+                    'user_id' => $loggedinid,
+                    'topic_id' => $topic_id,
+                    'group_id' => $group_id,
+                    'topic_name' => $topic_id,
+                    'group_title' => $group_id, 
+
+                ]);
+ 
 
                 $profiles = Group::find($group_id)->profiles()->get();
  

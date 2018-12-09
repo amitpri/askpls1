@@ -56,7 +56,7 @@ class Topic extends Resource
                 'Private' => 'Private',
                 'Public' => 'Public',
             ])
-            ->default('Private') // optional
+            ->default('Private')->sortable() // optional
     //        ->stack() // optional (required to show hints)
     //        ->marginBetween() // optional
             ->skipTransformation() // optional

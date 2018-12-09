@@ -27,6 +27,7 @@ use App\Nova\Setting;
 use App\Nova\Company; 
 use App\Nova\Feedback; 
 use App\Nova\User;
+use App\Nova\TopicLog;
 
 use Silvanite\NovaToolPermissions\NovaToolPermissions; 
 
@@ -39,10 +40,12 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 Profile::class,
                 Group::class,
                 Topic::class,
+                TopicLog::class,
                 Review::class, 
                 Account::class,
                 GroupProfile::class,
                 DataImport::class,
+
                 
        //         Member::class,
        //         Invite::class,
