@@ -3,23 +3,22 @@
 namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\DateTime;
+
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class DataImport extends Resource
+class TopicMail extends Resource
 {
-    /**
-     * The model the resource corresponds to.
-     *
-     * @var string
-     */
-    public static $group = "1.Setup";
+    
+    public static $group = '2.Reviews';
 
-    public static $model = 'App\DataImport';
+    public static $model = 'App\TopicMail';
 
     public static function label() {
 
-        return 'Data Imports';
+        return 'Mail Logs';
 
     }
 
@@ -39,11 +38,6 @@ class DataImport extends Resource
         'id',
     ];
 
-    public static function searchable()
-    {
-        return false;
-    }
-
     /**
      * Get the fields displayed by the resource.
      *
@@ -53,7 +47,19 @@ class DataImport extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->sortable(),            
+
+            Text::make('Topic Id', 'topic_id')->sortable()->sortable(),
+
+            Text::make('Topic Name')->sortable()->rules('required', 'max:255'), 
+
+            Text::make('Group Id', 'group_id')->sortable(),
+
+            Text::make('Profile Id', 'group_id')->sortable(),
+ 
+            Text::make('Email' , 'emailid')->sortable()->rules('required', 'max:255'),  
+
+            DateTime::make('Created At')->sortable(),
         ];
     }
 
@@ -65,13 +71,7 @@ class DataImport extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-
-            new \Sparclex\NovaImportCard\NovaImportCard(\App\Nova\Profile::class),
-            new \Sparclex\NovaImportCard\NovaImportCard(\App\Nova\Group::class),
-            new \Sparclex\NovaImportCard\NovaImportCard(\App\Nova\GroupProfile::class),
-
-        ];
+        return [];
     }
 
     /**
