@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Auth;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
@@ -12,6 +13,7 @@ use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Country;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Number;
+use Outhebox\NovaHiddenField\HiddenField;
 
 use Laravel\Nova\Resource as NovaResource;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -28,11 +30,11 @@ class Account extends Resource
 
     public static $model = 'App\\Account';
 
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
+    public static function uriKey() :string
+    {
+        return 'users';
+    }
+
     public static $title = 'name';
 
     /**
@@ -68,6 +70,8 @@ class Account extends Resource
             Image::make('Photo')->hideFromIndex(),
 
             new Panel('Address Information', $this->addressFields()),
+
+            new Panel('Company Information', $this->companyFields()),
         ];
     }
 
@@ -88,7 +92,7 @@ class Account extends Resource
 
             Number::make('phone'),
 
-            Number::make('phone2')->hideFromIndex(),
+            Number::make('phone2')->hideFromIndex(), 
 
             Password::make('Password')
                 ->onlyOnForms()
@@ -101,19 +105,30 @@ class Account extends Resource
     {
         return [
             Place::make('Address', 'address_line_1')->hideFromIndex(),
-            Text::make('Address Line 2')->hideFromIndex(),
+            Text::make('Address Line 2', 'address_line_2')->hideFromIndex(),
             Text::make('City')->hideFromIndex(),
             Text::make('State')->hideFromIndex(),
             Text::make('Postal Code')->hideFromIndex(),
-            Country::make('Country')->hideFromIndex(),
+            Country::make('Country'),
         ];
     }
-    /**
-     * Get the cards available for the request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
+
+    protected function companyFields()
+    {
+        return [
+            Text::make('Company Name', 'companyname'),
+            Text::make('Designation', 'designation'),
+            Text::make('No of emp', 'noofemp')->hideFromIndex(),
+            Place::make('Company Address', 'companyaddress')->hideFromIndex(),
+            Text::make('Company City','companycity')->hideFromIndex(), 
+            Country::make('Company Country', 'companycountry')->hideFromIndex(),
+            Text::make('Company Zip', 'companyzip')->hideFromIndex(),
+            Text::make('Company Phone1', 'companyphone1')->hideFromIndex(),
+            Text::make('Company Phone2', 'companyphone2')->hideFromIndex(),
+            Text::make('Business Domain', 'companydomain')->hideFromIndex(), 
+        ];
+    }
+ 
     public function cards(Request $request)
     {
         return [];

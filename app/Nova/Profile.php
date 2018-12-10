@@ -5,6 +5,8 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Textarea;
+
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -46,12 +48,13 @@ class Profile extends Resource
 
             Text::make('Email Id','emailid')
                 ->sortable()
-                ->rules('required' , 'email', 'max:255')
-                ->creationRules('unique:profiles,emailid'),
+                ->rules('required' , 'email', 'max:255'),
+          //      ->rules('unique:profiles,emailid,NULL,id'),
+          //      ->creationRules('unique:profiles,emailid'),
 
             Text::make('Phone')->sortable(),
 
-            Trix::make('Notes'),
+            Textarea::make('Notes'),
 
             BelongsToMany::make('Group')
         ];

@@ -2,9 +2,11 @@
 
 namespace App\Nova;
 
+use Auth;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
+use Outhebox\NovaHiddenField\HiddenField;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -42,7 +44,9 @@ class TopicLog extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),            
+            ID::make()->sortable(),   
+
+            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
 
             Text::make('Topic Id', 'topic_id')->sortable()->hideFromIndex()->hideFromDetail(),
 

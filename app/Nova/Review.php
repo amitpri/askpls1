@@ -2,9 +2,12 @@
 
 namespace App\Nova;
 
+use Auth;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use Outhebox\NovaHiddenField\HiddenField;
+
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -39,6 +42,7 @@ class Review extends Resource
 
         return [
             ID::make()->sortable(),
+            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
             Text::make('Topic Name')->sortable(),
             Text::make('Review')
         ];

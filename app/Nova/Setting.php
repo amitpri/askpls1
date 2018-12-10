@@ -14,6 +14,10 @@ use Laravel\Nova\Fields\Select;
 use Outhebox\NovaHiddenField\HiddenField;
 use Laravel\Nova\Resource as NovaResource;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use OwenMelbz\RadioField\RadioButton;
+
+use Laravel\Nova\Fields\Timezone;
+
 
 class Setting extends Resource
 {
@@ -21,67 +25,47 @@ class Setting extends Resource
     public static $group = "3.Admin";
 
     public static $model = 'App\\Setting';
-
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
+ 
     public static $title = 'name';
-
-    /**
-     * The columns that should be searched.
-     *
-     * @var array
-     */
+ 
     public static $search = [
 
         'id', 'name', 'email', 
     ];
 
-
-  
-
     
     public function fields(Request $request)
     {
         return [
+
             ID::make()->sortable()->hideFromIndex(),
 
             HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex(),
 
-            Select::make('Key')->options([
-                '1' => 'Recieves Marketing Mail',
-                'M' => 'Profile Searchable', 
-            ])->sortable()
-                ->rules('required', 'max:255'),
+            RadioButton::make('Notification - Reply', 'notification_reply')
+            ->options([
+                'Yes' => 'Yes',
+                'No' => 'No',
+            ])->default('Private')->sortable(),
 
-            Text::make('Value')
-                ->sortable()
-                ->rules('required', 'max:255'),
+            Select::make('Language', 'language')->options([
+                'English' => 'English', 
+            ])->sortable()
+                ->rules('required', 'max:255'), 
+
+            Timezone::make('Time Zone', 'timezone'),
+ 
 
         ];
     }
 
-
  
-    /**
-     * Get the cards available for the request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
     public function cards(Request $request)
     {
         return [];
     }
 
-    /**
-     * Get the filters available for the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
+ 
     public function filters(Request $request)
     {
         return [
@@ -89,23 +73,13 @@ class Setting extends Resource
         ];
     }
 
-    /**
-     * Get the lenses available for the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
+ 
     public function lenses(Request $request)
     {
         return [];
     }
 
-    /**
-     * Get the actions available for the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
+ 
     public function actions(Request $request)
     {
         return [];

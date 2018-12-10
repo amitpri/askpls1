@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Auth;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 
@@ -57,7 +58,7 @@ class Group extends Resource
 
             HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
  
-            Text::make('Title')->rules('required', 'max:255'),
+            Text::make('Title')->sortable()->rules('required', 'max:255'),
 
             Textarea::make('Body'),
  

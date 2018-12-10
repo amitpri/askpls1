@@ -2,7 +2,10 @@
 
 namespace App\Nova;
 
+use Auth;
 use Laravel\Nova\Fields\ID;
+use Outhebox\NovaHiddenField\HiddenField;
+
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -54,6 +57,7 @@ class DataImport extends Resource
     {
         return [
             ID::make()->sortable(),
+            HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
         ];
     }
 

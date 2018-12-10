@@ -17,8 +17,9 @@ class CreateSettingsTable extends Migration
             $table->increments('id');
             $table->integer('tenant_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
-            $table->string('key');
-            $table->string('value');
+            $table->string('notification_reply')->nullable();
+            $table->string('language')->nullable();
+            $table->string('timezone')->nullable();
             $table->timestamps();
         });
     }
