@@ -81,24 +81,24 @@ class ShowtopicsController extends Controller
    
     } 
 
-    public function postfeedback(Request $request)
+    public function postreview(Request $request)
     {   
         $inptopicid = $request->topicid;
         $inptopicname = $request->topicname;
-        $inpfeedback = $request->feedback;
+        $inpreview = $request->review;
 
-        $topic = Topic::where('id','=',$inptopicid)->where('topic','=',$inptopicname)->first(['id','user_id']); 
+        $topic = ShowTopic::where('id','=',$inptopicid)->where('topic_name','=',$inptopicname)->first(['id','user_id']); 
 
         $userid = $topic->user_id;
 
-        $postfeedback = Feedback::create(
+        $postfeedback = ShowReview::create(
                 [   
                     'user_id' => $userid,
                     'topic_id' => $inptopicid,
-                    'topic' => $inptopicname,
-                    'review' => $inpfeedback,
-                    'published' => 1,
-                    'status' => 1,                                 
+                    'topic_name' => $inptopicname,
+                    'review' => $inpreview,
+                //    'published' => 1,
+                //    'status' => 1,                                 
                 ]);
 
         $publishdata = [

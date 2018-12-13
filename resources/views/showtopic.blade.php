@@ -168,7 +168,7 @@
 		============================================= -->
 
 		<div id="feedback">
-	 		<section id="page-title" class="nobg border-top center">
+	 		<section id="page-title" class="  border-top center">
 
 				<div class="container clearfix">
 					<h1 class="font-secondary nott mb-3" style="font-size: 32px;">@{{ inpTopic }}</h1>
@@ -183,22 +183,14 @@
 				<div class="contact-form-result"></div>
 
 					<form class="nobottommargin" id="template-contactform" name="template-contactform" action="../../include/sendemail.php" method="post">
+ 
 
-						<div class="form-process"></div>  
-
-						<div class="clear"></div>  
-
-						<div class="col_full">
-							<label class="nott" for="template-contactform-message">Message <small>*</small></label>
-							<textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
-						</div>
-
-						<div class="col_full hidden">
-							<input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
-						</div>
+						<div class="col_full"> 
+							<textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="30" v-model="inpReview"></textarea>
+						</div> 
 
 						<div class="col_full">
-							<button class="button button-rounded button-large nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
+							<button class="button button-rounded button-large nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit" @click="savefeedback">Submit Review</button>
 						</div>
 
 					</form>
@@ -291,7 +283,7 @@
 					feedbacks: [],
 					inpKey:"", 
 					shownewfeedback: false,
-					inpFeedback : "",
+					inpReview : "",
 					flg_name : false,
 				},
 				mounted:function(){
@@ -343,7 +335,7 @@
 					savefeedback:function(e){
 
 
-						if( this.inpFeedback == null ){
+						if( this.inpReview == null ){
 					
 							this.flg_name = true; 
 
@@ -355,10 +347,10 @@
 
 							if( c == true){
 
-								axios.get('/showtopics/postfeedback' ,{
+								axios.get('/showtopics/postreview' ,{
 									params: {
 
-								      		feedback: this.inpFeedback,
+								      		review: this.inpReview,
 								      		topicid : this.inpId,
 								      		topicname : this.inpTopic, 
 								      	 
