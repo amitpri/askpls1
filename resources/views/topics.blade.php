@@ -26,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/colors.php?color=1c85e8" type="text/css" />
 
-    <script src="https://unpkg.com/vue"></script>
+    <script src="/vue/vue.min.js"></script>
         <script src="/axios/axios.min.js"></script>
 
     <!-- Document Title
@@ -170,7 +170,7 @@
 
 		<!-- Content
 		============================================= -->
-		<section id="content" id="topicsdetails">
+		<section  id="topicsdetails">
 
 			<div class="content-wrap clearfix">
 
@@ -192,27 +192,23 @@
 						</div>
 					</div>
 
-					<div class="row clearfix" v-for="topic in topics" v-cloak>
+					<div class="row clearfix" >
 
 						<div class="col-md-12">
-							<div class="toggle toggle-bg" data-animate="fadeIn" >
-								<div class="togglet rounded-top t400"><strong class="mr-1">Q.</strong>@{{ topic.topic_name }}
-                                    <i class="toggle-icon icon-line-circle-plus"></i>
-                                </div>
-								<div class="togglec rounded-bottom">
-                                    <p>Posted by <a href="">Amit</a> on 12 Dec 2018</p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, dolorum, vero ipsum molestiae minima odio quo voluptate illum excepturi quam cum voluptates doloribus quae nisi tempore necessitatibus dolores ducimus enim libero eaque explicabo suscipit animi at quaerat aliquid ex expedita perspiciatis? Saepe, aperiam, nam unde quas beatae vero vitae nulla.
-                                    <p><a class="btn btn-primary" href="/topics/1">Comments</a></p>
-                                </div>                                
-							</div>
+                            <div v-for="topic in topics" v-cloak>
+    							<div  class="toggle toggle-bg" data-animate="fadeIn" >
+    								<div class="togglet rounded-top t400"><strong class="mr-1">Q.</strong>@{{ topic.topic_name }}
+                                        <i class="toggle-icon icon-line-circle-plus"></i>
+                                    </div>
+    								<div class="togglec rounded-bottom">
+                                        <p>Posted by <a href="">Amit</a> on 12 Dec 2018</p>
+                                         @{{ topic.details }}
+                                        <p><a class="btn btn-primary" :href="'/topics/' + topic.id ">Comments</a></p>
+                                    </div>                                
+    							</div>
+                            </div>
 							   
-						</div>
-
-						<div class="col-md-4">
-							<a href="images/single/2.jpg" data-lightbox="image"><img src="images/single/thumbs/1.jpg" alt=""></a>
-							<div class="clear"></div>
-							<a href="images/single/6.jpg" data-lightbox="image"><img class="mt-5" src="images/single/thumbs/4.jpg" alt=""></a>
-						</div>
+						</div> 
 
 					</div>
 

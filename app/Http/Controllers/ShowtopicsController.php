@@ -3,29 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\ShowTopic;
-use App\Feedback;
+use App\ShowReview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
-class TopicController extends Controller
+class ShowtopicsController extends Controller
 {
     public function index()
     {
 
-        return view('topics');
+        return view('showtopics');
    
     }
 
     public function default()
     {
 
-        $topics = ShowTopic::
-      //          where('published', '=' , 1)->
-         //       where('status', '=' , 1)->
-                where('type', '=' , 'public')->
-                orderBy('updated_at','desc')->
-                take(10)->
-                get(['id','user_id','topic_name' ,'details'   ]);
+        $topics = ShowTopic::where('published', '=' , 1)->where('status', '=' , 1)->where('type', '=' , 'public')->orderBy('updated_at','desc')->take(10)->get(['id','user_id','topic','name']);
 
         return $topics;
    
@@ -61,7 +55,7 @@ class TopicController extends Controller
     public function show($id)
     {
  
-        $topic = ShowTopic::where('id','=',$id)->where('type','=','public')->first(['id','topic_name' , 'details']);
+        $topic = ShowTopic::where('id','=',$id)->where('type','=','public')->first(['id','topic']);
 
         return view('showtopic',compact('topic'));
    
@@ -72,7 +66,7 @@ class TopicController extends Controller
  
         $id = $request->id; 
 
-        $topic = ShowTopic::where('id','=',$id)->where('type','=','public')->first(['id','topic','details','type']);
+        $topic = ShowTopic::where('id','=',$id)->where('type','=','public')->first(['id','topic_name','details','type']);
         
         return $topic;
     }
@@ -81,7 +75,7 @@ class TopicController extends Controller
     {   
         $inpid = $request->id; 
 
-        $topic = Feedback::where('topic_id','=',$inpid)->get(['id','topic','review','created_at']); 
+        $topic = ShowReview::where('topic_id','=',$inpid)->get(['id','topic_name','review','created_at']); 
 
         return $topic;
    
@@ -93,7 +87,7 @@ class TopicController extends Controller
         $inptopicname = $request->topicname;
         $inpfeedback = $request->feedback;
 
-        $topic = ShowTopic::where('id','=',$inptopicid)->where('topic','=',$inptopicname)->first(['id','user_id']); 
+        $topic = Topic::where('id','=',$inptopicid)->where('topic','=',$inptopicname)->first(['id','user_id']); 
 
         $userid = $topic->user_id;
 
@@ -123,4 +117,6 @@ class TopicController extends Controller
         return $postfeedback;
    
     } 
+
+    
 }

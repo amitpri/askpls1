@@ -37,3 +37,12 @@ Route::get('/topics/postfeedback', 'TopicController@postfeedback');
 Route::get('/topics/showdetails', 'TopicController@showdetails'); 
 
 Route::get('/topics/{id}', 'TopicController@show');
+ 
+Route::get('/showtopics/default', 'ShowtopicsController@default');
+Route::get('/showtopics/getmore', 'ShowtopicsController@getmore');
+Route::get('/showtopics/filtered', 'ShowtopicsController@filtered');
+Route::get('/showtopics/messages', 'ShowtopicsController@messages');
+Route::get('/showtopics/postfeedback', 'ShowtopicsController@postfeedback'); 
+Route::get('/showtopics/showdetails', 'ShowtopicsController@showdetails'); 
+
+Route::get('/showtopics/{id}', 'ShowtopicsController@show');
