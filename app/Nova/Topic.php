@@ -57,14 +57,19 @@ class Topic extends Resource
                 'Public' => 'Public',
             ])
             ->default('Private')->sortable() // optional
-    //        ->stack() // optional (required to show hints)
-    //        ->marginBetween() // optional
-            ->skipTransformation() // optional
-  //          ->toggle([  // optional
-   //             1 => ['max_skips', 'skip_sponsored'] // will hide max_skips and skip_sponsored when the value is 1
-   //         ]), 
-            ,
+            ->skipTransformation(),
+
+            HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
   
+            Text::make('Public URL' ,function(){
+
+                if ( $this->type == 'Public'){
+
+                    return $this->url;
+                }
+
+            }),
+
             Trix::make('Details')->alwaysShow()->rules('required', 'max:4000'),
 
             BelongsToMany::make('Group'),

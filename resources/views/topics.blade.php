@@ -26,6 +26,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/colors.php?color=1c85e8" type="text/css" />
 
+    <script src="https://unpkg.com/vue"></script>
+        <script src="/axios/axios.min.js"></script>
+
     <!-- Document Title
     ============================================= -->
     <title>AskPls | Anonymous Review System</title>
@@ -34,7 +37,7 @@
 
 <body class="stretched side-push-panel">
 
-    <div id="side-panel">
+	<div id="side-panel">
 
         <div id="side-panel-trigger-close" class="side-panel-trigger"><a href="#"><i class="icon-line-cross"></i></a></div>
 
@@ -86,13 +89,13 @@
 
     </div>
 
-    <!-- Document Wrapper
-    ============================================= -->
-    <div id="wrapper" class="clearfix">
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
 
-        <!-- Header
-        ============================================= -->
-        <header id="header">
+		<!-- Header
+		============================================= -->
+		<header id="header">
 
             <div id="header-wrap">
 
@@ -161,66 +164,70 @@
 
         </header><!-- #header end -->
 
-        <!-- Slider
-        ============================================= -->
-      
-
-        <!-- Content
-        ============================================= -->
-        <section id="content" style="margin-top:-50px;">
-
-            <div class="content-wrap notoppadding clearfix">
+		<!-- Page Title
+		============================================= -->
  
-                <div class="container topmargin-lg bottommargin-lg clearfix">
 
-                  
+		<!-- Content
+		============================================= -->
+		<section id="content" id="topicsdetails">
 
-                </div> 
+			<div class="content-wrap clearfix">
 
-                <div class="container clearfix">
+				<div class="container">
 
-                    <div class="emphasis-title center divcenter" style="max-width: 800px">
-                        <h2 class="font-secondary nott t700">1000 of companies using and satisfied...</h2>
-                    </div>
+					<div class="row">
+						<div class="col-lg-6 col-md-6">
+							<div class="search-control-wrapper">
+								<form action="#">
+									<div class="form-group">
+										<div class="input-group">
+											<input type="text" class="form-control" placeholder="Search Topics" v-model="searchquery"  @keyup="filteredtopics" >
+ 											<button class="btn btn-default" type="button">Search</button>
+											 
+										</div>
+									</div>
+								</form>
+							</div> 
+						</div>
+					</div>
+
+					<div class="row clearfix" v-for="topic in topics" v-cloak>
+
+						<div class="col-md-12">
+							<div class="toggle toggle-bg" data-animate="fadeIn" >
+								<div class="togglet rounded-top t400"><strong class="mr-1">Q.</strong>@{{ topic.topic_name }}
+                                    <i class="toggle-icon icon-line-circle-plus"></i>
+                                </div>
+								<div class="togglec rounded-bottom">
+                                    <p>Posted by <a href="">Amit</a> on 12 Dec 2018</p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, dolorum, vero ipsum molestiae minima odio quo voluptate illum excepturi quam cum voluptates doloribus quae nisi tempore necessitatibus dolores ducimus enim libero eaque explicabo suscipit animi at quaerat aliquid ex expedita perspiciatis? Saepe, aperiam, nam unde quas beatae vero vitae nulla.
+                                    <p><a class="btn btn-primary" href="/topics/1">Comments</a></p>
+                                </div>                                
+							</div>
+							   
+						</div>
+
+						<div class="col-md-4">
+							<a href="images/single/2.jpg" data-lightbox="image"><img src="images/single/thumbs/1.jpg" alt=""></a>
+							<div class="clear"></div>
+							<a href="images/single/6.jpg" data-lightbox="image"><img class="mt-5" src="images/single/thumbs/4.jpg" alt=""></a>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+            <div class="center"><button class="btn btn-default" @click="morerows">Load More</button></div>
+
+		</section><!-- #content end -->
+
  
-                    <div class="col_one_third nobottommargin">
-                        <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
-                            <div class="fbox-icon">
-                                <i class="icon-line2-home"></i>
-                            </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Simple Pricing</h3>
-                            <p style="font-size: 16px;">Simple pricing based on users.</p>
-                        </div>
-                    </div>
-                    <div class="col_one_third nobottommargin">
-                        <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
-                            <div class="fbox-icon">
-                                <i class="icon-line2-compass"></i>
-                            </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Secured Reviews</h3>
-                            <p style="font-size: 16px;">Choose to use your own mail server and keep it complete secure within your premises</p>
-                        </div>
-                    </div>
-                    <div class="col_one_third nobottommargin col_last">
-                        <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
-                            <div class="fbox-icon">
-                                <i class="icon-line2-directions"></i>
-                            </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Cloud or In-premise Setup</h3>
-                            <p style="font-size: 16px;">Choose to get the setup installed at cloud or your in-premise</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </section><!-- #content end -->
-
-        <!-- Footer
-        ============================================= -->
-        <footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">
-
-          
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="topmargin noborder" style="background-color: #F5F5F5;">          
 
             <div class="line nomargin"></div>
 
@@ -240,20 +247,96 @@
 
         </footer><!-- #footer end -->
 
-    </div><!-- #wrapper end -->
+	</div><!-- #wrapper end -->
 
-    <!-- Go To Top
-    ============================================= -->
-    <div id="gotoTop" class="icon-angle-up"></div>
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
 
-    <!-- External JavaScripts
-    ============================================= -->
-    <script src="js/jquery.js"></script>
-    <script src="js/plugins.js"></script>
+	<!-- External JavaScripts
+	============================================= -->
+	<script src="../../js/jquery.js"></script>
+	<script src="../../js/plugins.js"></script>
 
-    <!-- Footer Scripts
-    ============================================= -->
-    <script src="js/functions.js"></script>
+	<!-- Footer Scripts
+	============================================= -->
+	<script src="../../js/functions.js"></script>
+
+    <script>
+    
+        const topicsdetails = new Vue({
+
+            el : '#topicsdetails',
+            data : {
+                id:"", 
+                inpId: "", 
+                topic: "",
+                topics: [],
+                inpKey:"", 
+                searchquery : "",
+                row_count : 10,
+            },
+            mounted:function(){ 
+
+                axios.get('/topics/default')
+                .then(response => {
+
+                    this.topics = response.data; 
+
+                }); 
+
+            },
+            methods:{
+
+                filteredtopics:function(){
+
+                    axios.get('/showtopics/filtered' ,{
+
+                            params: {
+
+                                topics : this.searchquery, 
+
+                                }
+
+                            })
+                        .then(response => {this.topics = response.data});
+                
+         
+                },
+                morerows:function(){
+
+                    axios.get('/showtopics/getmore' ,{
+
+                            params: {
+                              row_count: this.row_count,
+                            }
+
+                        }).then(response => {
+
+                            for (var i = 0;  i <= response.data.length - 1; i++ ) {
+
+                                this.topics.push({
+
+                                        id : response.data[i].id, 
+                                        user_id : response.data[i].user_id, 
+                                        topic : response.data[i].topic, 
+                                        name : response.data[i].name,  
+
+                                    });
+                            }                       
+
+                        });
+     
+
+                    this.row_count = this.row_count + 10;
+                    
+                }
+            }
+
+        })
+
+
+    </script>
 
 </body>
 </html>

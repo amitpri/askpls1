@@ -112,7 +112,7 @@
                                             <li><a href="/customers"><div>Customers</div></a></li> 
                                         </ul>
                                     </li>
-                                    <li><a href="/product"><div>Product</div></a></li>
+                                    <li><a href="/topics"><div>Topics</div></a></li>
                                     <li><a href="#"><div>Solutions</div></a>
                                         <ul>
                                             <li><a href="/engineering"><div>Engineering</div></a></li>

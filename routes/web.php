@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
  
 
 Auth::routes();
@@ -36,3 +26,14 @@ Route::get('/review/default', 'ReviewController@default');
 Route::get('/review/draft', 'ReviewController@draft');
 Route::get('/review/save', 'ReviewController@save');
 Route::get('/review/{key}', 'ReviewController@review');
+
+
+Route::get('/topics', 'TopicController@index');
+Route::get('/topics/default', 'TopicController@default');
+Route::get('/topics/getmore', 'TopicController@getmore');
+Route::get('/topics/filtered', 'TopicController@filtered');
+Route::get('/topics/messages', 'TopicController@messages');
+Route::get('/topics/postfeedback', 'TopicController@postfeedback'); 
+Route::get('/topics/showdetails', 'TopicController@showdetails'); 
+
+Route::get('/topics/{id}', 'TopicController@show');
