@@ -183,7 +183,7 @@
 									<div class="form-group">
 										<div class="input-group">
 											<input type="text" class="form-control" placeholder="Search Topics" v-model="searchquery"  @keyup="filteredtopics" >
- 											<button class="btn btn-default" type="button">Search</button>
+ 											<button class="btn btn-primary" type="button">Search</button>
 											 
 										</div>
 									</div>
@@ -201,9 +201,11 @@
                                         <i class="toggle-icon icon-line-circle-plus"></i>
                                     </div>
     								<div class="togglec rounded-bottom">
-                                        <p>Posted by <a href="">Amit</a> on 12 Dec 2018</p>
+                                        <p>Posted by 
+                                                <a target="_blank" :href="'/viewprofile/' + topic.user_id">@{{ topic.name }}</a> on 12 Dec 2018 || 
+                                                <a target="_blank" class="btn btn-default" :href="'/topics/' + topic.id "> Comments</a> </p>
                                          @{{ topic.details }}
-                                        <p><a class="btn btn-primary" :href="'/topics/' + topic.id ">Comments</a></p>
+                                         
                                     </div>                                
     							</div>
                             </div>
@@ -216,7 +218,7 @@
 
 			</div>
 
-            <div class="center"><button class="btn btn-default" @click="morerows">Load More</button></div>
+            <div class="center"><button class="btn btn-primary" @click="morerows">Load More</button></div>
 
 		</section><!-- #content end -->
 

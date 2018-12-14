@@ -40,6 +40,7 @@ Route::get('/topics/{id}', 'TopicController@show');
  
 Route::get('/showtopics/default', 'ShowtopicsController@default');
 Route::get('/showtopics/getmore', 'ShowtopicsController@getmore');
+Route::get('/showtopics/getmoremessages', 'ShowtopicsController@getmoremessages');
 Route::get('/showtopics/filtered', 'ShowtopicsController@filtered');
 Route::get('/showtopics/messages', 'ShowtopicsController@messages');
 Route::get('/showtopics/postreview', 'ShowtopicsController@postreview'); 

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
+use App\User;
 use App\ShowTopic;
 use App\Feedback;
 use Illuminate\Http\Request;
@@ -19,13 +22,25 @@ class TopicController extends Controller
     public function default()
     {
 
-        $topics = ShowTopic::
+  //      $topics = ShowTopic::
       //          where('published', '=' , 1)->
          //       where('status', '=' , 1)->
-                where('type', '=' , 'public')->
-                orderBy('updated_at','desc')->
-                take(10)->
-                get(['id','user_id','topic_name' ,'details'   ]);
+     //           where('type', '=' , 'public')->
+    //            orderBy('updated_at','desc')->
+    //            take(10)->
+      //          get(['id','user_id','topic_name' ,'details'   ]);
+
+    //    $topics1 = ShowTopic::where('type', '=' , 'public')->
+      //                  orderBy('updated_at','desc')->take(10)->find(10)->get();
+
+        $topics = DB::select('SELECT  a.`id`, a.`user_id`,  a.`topic_name`,  a.`details` , b.`name`
+                                        FROM `topics` a ,  `users` b 
+                                        WHERE a.`user_id` = b.`id`
+                                        AND a.`type` = "public"
+                                        ORDER BY a.`updated_at` DESC
+                                        limit 10');
+                                                                                                                
+ 
 
         return $topics;
    
@@ -36,7 +51,14 @@ class TopicController extends Controller
 
         $row_count = $request->row_count;
 
-        $topics = ShowTopic::where('published', '=' , 1)->where('status', '=' , 1)->where('type', '=' , 'public')->orderBy('updated_at','desc')->offset($row_count)->take(10)->get(['id','user_id','topic','name']);
+        $topics = DB::select('SELECT  a.`id`, a.`user_id`,  a.`topic_name`,  a.`details` , b.`name`
+                                        FROM `topics` a ,  `users` b 
+                                        WHERE a.`user_id` = b.`id`
+                                        AND a.`type` = "public"
+                                        ORDER BY a.`updated_at` DESC
+                                        limit :limit offset :offset'  
+                                                        , [ 'limit' => $limit , 'offset' => $offset]);
+ 
 
         return $topics;
    
@@ -61,9 +83,26 @@ class TopicController extends Controller
     public function show($id)
     {
  
-        $topic = ShowTopic::where('id','=',$id)->where('type','=','public')->first(['id','topic_name' , 'details']);
+         $topics = DB::select('SELECT  a.`id`, a.`user_id`,  a.`topic_name`,  a.`details` , b.`name`, a.`created_at`
+                                        FROM `topics` a ,  `users` b 
+                                        WHERE a.`id` = :id
+                                        AND a.`user_id` = b.`id`
+                                        AND a.`type` = "public" ', ['id' => $id]);
+        
+        
+        foreach ($topics as $topic) {
+        
+            $id = $topic->id;
+            $user_id = $topic->user_id;
+            $topic_name = $topic->topic_name;
+            $details = $topic->details;
+            $username = $topic->name;
+            $created_at = $topic->created_at; 
 
-        return view('showtopic',compact('topic'));
+            
+        }
+       
+        return view('showtopic',compact('id', 'user_id', 'username' , 'created_at' , 'topic_name', 'details'));
    
     } 
 

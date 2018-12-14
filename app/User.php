@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail; 
-
+use App\ShowTopic;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -28,6 +28,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'password_o','remember_token',
     ];
+
+    public function topics()
+    {
+        return $this->hasMany('ShowTopic');
+    }
 
     
 }

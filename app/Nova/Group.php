@@ -60,7 +60,7 @@ class Group extends Resource
  
             Text::make('Title')->sortable()->rules('required', 'max:255'),
 
-            Textarea::make('Body'),
+            Textarea::make('Body')->rows(10),
  
             BelongsToMany::make('Profiles')->searchable(),
 

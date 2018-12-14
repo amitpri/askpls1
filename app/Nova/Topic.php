@@ -4,7 +4,7 @@ namespace App\Nova;
  
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Textarea;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -49,15 +49,18 @@ class Topic extends Resource
 
             HiddenField::make('User', 'user_id')->current_user_id()->hideFromIndex()->hideFromDetail(),
 
-            Text::make('Topic Name')->sortable()->rules('required', 'max:255'), 
+            Text::make('Topic Name')->sortable()->rules('required', 'max:100')
+                    ->help(
+                        'The heading of the review being asked for. Max length 100'
+                    ), 
 
             RadioButton::make('Type')
             ->options([
                 'Private' => 'Private',
                 'Public' => 'Public',
-            ])
-            ->default('Private')->sortable() // optional
-            ->skipTransformation(),
+            ])->default('Private')->sortable()->help(
+                        "<br><br><i>" . 'Public Topics are displayed at askpls.com and can be reviewed by anybody'  ."<i>"
+                    ), 
 
             HiddenField::make( 'url')->default('https://askpls.com/topics/' . str_random(10))->hideFromIndex()->hideFromDetail(),
   
@@ -70,7 +73,9 @@ class Topic extends Resource
 
             }),
 
-            Trix::make('Details')->alwaysShow()->rules('required', 'max:4000'),
+            Textarea::make('Details')->rows(10)->rules('required', 'max:4000')->help(
+                        "<i>" . 'Details or links of the topics to be reviewed. Max length 4000 characters'  ."<i>"
+                    ), 
 
             BelongsToMany::make('Group'),
 

@@ -30,7 +30,28 @@ class ShowtopicsController extends Controller
 
         $row_count = $request->row_count;
 
-        $topics = ShowTopic::where('published', '=' , 1)->where('status', '=' , 1)->where('type', '=' , 'public')->orderBy('updated_at','desc')->offset($row_count)->take(10)->get(['id','user_id','topic','name']);
+        $topics = ShowTopic::
+            //    where('published', '=' , 1)->
+           //     where('status', '=' , 1)->
+                where('type', '=' , 'public')->
+                orderBy('updated_at','desc')->offset($row_count)->take(10)->get(['id','user_id','topic_name']);
+
+        return $topics;
+   
+    }
+
+    public function getmoremessages(Request $request)
+    {
+
+        $row_count = $request->row_count;
+        $topic_id = $request->id;
+
+        $topics = ShowReview::
+            //    where('published', '=' , 1)->
+           //     where('status', '=' , 1)-> 
+                where('topic_id' , '=' , $topic_id)->
+                orderBy('updated_at','desc')->offset($row_count)->take(10)->
+                get(['id','user_id','topic_name', 'review']);
 
         return $topics;
    
@@ -42,11 +63,12 @@ class ShowtopicsController extends Controller
         $topicsinput = $request->topics;
         
         $topics = ShowTopic::
-                where('published', '=' , 1)
-                ->where('status', '=' , 1)->where('type', '=' , 'public')
-                ->where('topic', 'like' , "%$topicsinput%")
+            //    where('published', '=' , 1)
+              //  ->where('status', '=' , 1)->
+                where('type', '=' , 'public')
+                ->where('topic_name', 'like' , "%$topicsinput%")
                 ->take(10)
-                ->get(['id','topic','details']);
+                ->get(['id','topic_name','details']);
                   
         return $topics;
    

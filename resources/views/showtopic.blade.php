@@ -172,30 +172,26 @@
 
 				<div class="container clearfix">
 					<h1 class="font-secondary nott mb-3" style="font-size: 32px;">@{{ inpTopic }}</h1>
-					<h6>Posted by Amit on 12 dec 2018</h6>
+					<h6>Posted by @{{ inpName }} @{{ inpCreated_at}}</h6>
 					<span>@{{ inpDetail }}</span>
 				</div>
-
-			</section><!-- #page-title end -->
-
-			<div class="contact-widget mt-2 divcenter" style="max-width: 750px">
-
-				<div class="contact-form-result"></div>
+				<div class="contact-widget mt-1 divcenter " style="max-width: 750px"> 
 
 					<form class="nobottommargin" id="template-contactform" name="template-contactform" action="../../include/sendemail.php" method="post">
- 
 
 						<div class="col_full"> 
 							<textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="5" cols="30" v-model="inpReview"></textarea>
 						</div> 
 
 						<div class="col_full">
-							<button class="button button-rounded button-large nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit" @click="savefeedback">Submit Review</button>
+							<button class="button  button-small nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit" @click="savefeedback">Submit Review</button>
 						</div>
 
 					</form>
 			</div>
 
+			</section><!-- #page-title end -->
+ 
 		<!-- Content
 		============================================= -->
 			<section>
@@ -226,7 +222,7 @@
 
 				</div>
 
-	            <div class="center"><button class="btn btn-default"  >Load More</button></div>
+	            <div class="center"><button class="btn btn-default"  @click="moremessages">Load More</button></div>
 
 			</section><!-- #content end -->
 
@@ -276,15 +272,18 @@
 				el : '#feedback',
 				data : {
 					id:"", 
-					inpId: "{!! $topic->id !!}",
+					inpId: "{!! $id !!}",
+					inpName: "",
 					inpTopic: "",
 					inpDetail: "", 
+					inpCreated_at: "",
 					feedback: "",
 					feedbacks: [],
 					inpKey:"", 
 					shownewfeedback: false,
 					inpReview : "",
 					flg_name : false,
+					row_count : 10,
 				},
 				mounted:function(){
 
@@ -301,6 +300,9 @@
 						this.inpTopic  = response.data.topic_name;
 						this.inpId = response.data.id;
 						this.inpDetail = response.data.details;
+						this.inpName = response.data.username;
+						this.inpCreated_at = response.data.created_at;
+						
 
 					});
 
@@ -316,22 +318,36 @@
 
 				},
 				methods: { 
+ 
+	                moremessages:function(){
 
-					addfeedback:function(e){  
-						e.preventDefault();				
+	                    axios.get('/showtopics/getmoremessages' ,{
 
-						if ( this.shownewfeedback === true ) {
+	                            params: {
+	                              row_count: this.row_count,
+	                              id: this.inpId, 
+	                            }
 
-							this.shownewfeedback = false; 
+	                        }).then(response => {
 
+	                            for (var i = 0;  i <= response.data.length - 1; i++ ) {
 
-						} else {
+	                                this.topics.push({
 
-							this.shownewfeedback = true; 
+	                                        id : response.data[i].id, 
+	                                        user_id : response.data[i].user_id, 
+	                                        topic_name : response.data[i].topic_name, 
+	                                 //       name : response.data[i].name,  
 
-						};
+	                                    });
+	                            }                       
 
-					},
+	                        });
+	     
+
+	                    this.row_count = this.row_count + 10;
+	                    
+	                },
 					savefeedback:function(e){
 
 
