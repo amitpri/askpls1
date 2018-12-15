@@ -14,92 +14,20 @@ class IndexController extends Controller
 
     }
 
-    public function howitworks()
+    public function why()
     {
  
-    	return view('howitworks');
+    	return view('why');
 
     }
 
-    public function enterprises()
+    public function solutions()
     {
  
 
-    	return view('enterprises');
+    	return view('solutions');
 
-    }
-
-    public function customers()
-    {
- 
-
-    	return view('customers');
-
-    }
-
-	public function product()
-    {
- 
-
-    	return view('product');
-
-    }
-
-    public function engineering()
-    {
- 
-
-    	return view('engineering');
-
-    }
-
-    public function it()
-    {
- 
-
-    	return view('it');
-
-    }
-
-    public function customersupport()
-    {
- 
-
-    	return view('customersupport');
-
-    }
-
-    public function sales()
-    {
- 
-
-    	return view('sales');
-
-    }
-
-    public function marketing()
-    {
- 
-
-    	return view('marketing');
-
-    }
-
-    public function humanresources()
-    {
- 
-
-    	return view('humanresources');
-
-    }  
-    
-    public function cxo()
-    {
- 
-
-    	return view('cxo');
-
-    }  
+    }        
 
     public function prices()
     {

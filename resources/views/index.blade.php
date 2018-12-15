@@ -118,25 +118,9 @@
                             <nav id="primary-menu" class="with-arrows fnone clearfix">
 
                                 <ul> 
-                                    <li><a href="#"><div>Why AskPls</div></a>
-                                        <ul>
-                                            <li><a href="/how-it-works"><div>How it works?</div></a></li>
-                                            <li><a href="/enterprises"><div>Enterprises</div></a></li> 
-                                            <li><a href="/customers"><div>Customers</div></a></li> 
-                                        </ul>
-                                    </li>
                                     <li><a href="/topics"><div>Topics</div></a></li>
-                                    <li><a href="#"><div>Solutions</div></a>
-                                        <ul>
-                                            <li><a href="/engineering"><div>Engineering</div></a></li>
-                                            <li><a href="/it"><div>IT</div></a></li>
-                                            <li><a href="/customer-support"><div>Customer Support</div></a></li>
-                                            <li><a href="/sales"><div>Sales</div></a></li>
-                                            <li><a href="/marketing"><div>Marketing</div></a></li>
-                                            <li><a href="/human-resources"><div>Human Resources</div></a></li>
-                                            <li><a href="/cxo"><div>CxO</div></a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="/solutions"><div>Solutions</div></a></li>
+                                    <li><a href="/why"><div>Why AskPls</div></a></li>
                                     <li><a href="/prices"><div>Prices</div></a></li>
                                     <li><a href="/faqs"><div>FAQs</div></a></li>
                                     <li><a href="/contact"><div>Contact</div></a></li>
@@ -209,10 +193,10 @@
 
                             <div class="tab-container">
 
-                                <div class="tab-content clearfix" id="tabs-1">
+                                <div class="tab-content clearfix" id="tabs-1" style="margin-top:-20px;">
                                     <div class="story-box description-left clearfix">
                                         <div class="story-box-image">
-                                            <img src="demos/interior-design/images/story/1.jpg" alt="story-image">
+                                            <img src="/images/1.jpg" alt="story-image">
                                         </div>
                                         <div class="story-box-info">
                                             <h3 class="story-title">You don't need to worry about revealing your identities</h3>
@@ -223,10 +207,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-content clearfix" id="tabs-2">
+                                <div class="tab-content clearfix" id="tabs-2" style="margin-top:-20px;">
                                     <div class="story-box clearfix">
                                         <div class="story-box-image">
-                                            <img src="demos/interior-design/images/story/2.jpg" alt="story-image">
+                                            <img src="/images/2.jpg" alt="story-image">
                                         </div>
                                         <div class="story-box-info">
                                             <h3 class="story-title">Private Reviews</h3>
@@ -237,10 +221,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-content clearfix" id="tabs-3">
+                                <div class="tab-content clearfix" id="tabs-3" style="margin-top:-20px;">
                                     <div class="story-box description-left clearfix">
                                         <div class="story-box-image">
-                                            <img src="demos/interior-design/images/story/3.jpg" alt="story-image">
+                                            <img src="/images/3.jpg" alt="story-image">
                                         </div>
                                         <div class="story-box-info">
                                             <h3 class="story-title">Public Reviews</h3>
@@ -251,10 +235,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-content clearfix" id="tabs-4">
+                                <div class="tab-content clearfix" id="tabs-4" style="margin-top:-20px;">
                                     <div class="story-box clearfix">
                                         <div class="story-box-image">
-                                            <img src="demos/interior-design/images/story/4.jpg" alt="story-image">
+                                            <img src="/images/4.jpg" alt="story-image">
                                         </div>
                                         <div class="story-box-info">
                                             <h3 class="story-title">Custom based Solutions</h3>

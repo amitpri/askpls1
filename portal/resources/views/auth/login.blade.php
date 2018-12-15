@@ -38,14 +38,17 @@
     <div class="flex mb-6">
         <label class="flex items-center block text-xl font-bold">
             <input class="" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-            <span class="text-base ml-2">{{ __('Remember Me') }}</span>
+            <span class="text-base ml-2">{{ __('Remember') }}</span>
         </label>
 
 
         @if (Laravel\Nova\Nova::resetsPasswords())
         <div class="ml-auto">
+            <a class="text-primary dim font-bold no-underline" href="../register">
+                Register
+            </a> | 
             <a class="text-primary dim font-bold no-underline" href="{{ route('nova.password.request') }}">
-                {{ __('Forgot Your Password?') }}
+                {{ __('Forgot Password?') }}
             </a>
         </div>
         @endif

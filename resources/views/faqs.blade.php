@@ -118,25 +118,9 @@
                             <nav id="primary-menu" class="with-arrows fnone clearfix">
 
                                 <ul> 
-                                    <li><a href="#"><div>Why AskPls</div></a>
-                                        <ul>
-                                            <li><a href="/how-it-works"><div>How it works?</div></a></li>
-                                            <li><a href="/enterprises"><div>Enterprises</div></a></li> 
-                                            <li><a href="/customers"><div>Customers</div></a></li> 
-                                        </ul>
-                                    </li>
                                     <li><a href="/topics"><div>Topics</div></a></li>
-                                    <li><a href="#"><div>Solutions</div></a>
-                                        <ul>
-                                            <li><a href="/engineering"><div>Engineering</div></a></li>
-                                            <li><a href="/it"><div>IT</div></a></li>
-                                            <li><a href="/customer-support"><div>Customer Support</div></a></li>
-                                            <li><a href="/sales"><div>Sales</div></a></li>
-                                            <li><a href="/marketing"><div>Marketing</div></a></li>
-                                            <li><a href="/human-resources"><div>Human Resources</div></a></li>
-                                            <li><a href="/cxo"><div>CxO</div></a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="/solutions"><div>Solutions</div></a></li>
+                                    <li><a href="/why"><div>Why AskPls</div></a></li>
                                     <li><a href="/prices"><div>Prices</div></a></li>
                                     <li><a href="/faqs"><div>FAQs</div></a></li>
                                     <li><a href="/contact"><div>Contact</div></a></li>
@@ -167,49 +151,54 @@
 
         <!-- Content
         ============================================= -->
-        <section id="content" style="margin-top:-50px;">
+        <section id="content">
 
-            <div class="content-wrap notoppadding clearfix">
- 
-                <div class="container topmargin-lg bottommargin-lg clearfix">
+            <div class="content-wrap clearfix">
 
-                  
+                <div class="container">
 
-                </div> 
+                    <div class="row clearfix">
 
-                <div class="container clearfix">
-
-                    <div class="emphasis-title center divcenter" style="max-width: 800px">
-                        <h2 class="font-secondary nott t700">1000 of companies using and satisfied...</h2>
-                    </div>
- 
-                    <div class="col_one_third nobottommargin">
-                        <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
-                            <div class="fbox-icon">
-                                <i class="icon-line2-home"></i>
+                        <div class="col-md-8">
+                            <div class="toggle toggle-bg" data-animate="fadeIn">
+                                <div class="togglet rounded-top t400"><strong class="mr-1">Q.</strong>What is AskPls?<i class="toggle-icon icon-line-circle-plus"></i></div>
+                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, dolorum, vero ipsum molestiae minima odio quo voluptate illum excepturi quam cum voluptates doloribus quae nisi tempore necessitatibus dolores ducimus enim libero eaque explicabo suscipit animi at quaerat aliquid ex expedita perspiciatis? Saepe, aperiam, nam unde quas beatae vero vitae nulla.</div>
                             </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Simple Pricing</h3>
-                            <p style="font-size: 16px;">Simple pricing based on users.</p>
-                        </div>
-                    </div>
-                    <div class="col_one_third nobottommargin">
-                        <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
-                            <div class="fbox-icon">
-                                <i class="icon-line2-compass"></i>
+
+                            <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="200">
+                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>How can I create a topic for anonymous reviews?<i class="toggle-icon icon-line-circle-plus"></i></div>
+                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad odio ab quis architecto recusandae doloremque incidunt! Eius, quidem, pariatur necessitatibus commodi aliquid deleniti repudiandae accusantium tempora soluta vel nesciunt est quibusdam iure adipisci aspernatur maiores saepe ea eaque quo harum reprehenderit similique nemo voluptate ullam natus illum magnam alias nobis doloremque delectus ipsa dicta repellat maxime dignissimos eveniet quae debitis ratione assumenda tempore officiis fugiat dolor. Saepe iusto praesentium ullam aliquam impedit.</div>
                             </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Secured Reviews</h3>
-                            <p style="font-size: 16px;">Choose to use your own mail server and keep it complete secure within your premises</p>
-                        </div>
-                    </div>
-                    <div class="col_one_third nobottommargin col_last">
-                        <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
-                            <div class="fbox-icon">
-                                <i class="icon-line2-directions"></i>
+
+                            <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="400">
+                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>How to Load Profiles?<i class="toggle-icon icon-line-circle-plus"></i></div>
+                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, fugiat iste nisi tempore nesciunt nemo fuga? Nesciunt, delectus laboriosam nisi repudiandae nam fuga saepe animi recusandae. Asperiores, provident, esse, doloremque, adipisci eaque alias dolore molestias assumenda quasi saepe nisi ab illo ex nesciunt nobis laboriosam iusto quia nulla ad voluptatibus iste beatae voluptas corrupti facilis accusamus recusandae sequi debitis reprehenderit quibusdam. Facilis eligendi a exercitationem nisi et placeat excepturi velit!</div>
                             </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Cloud or In-premise Setup</h3>
-                            <p style="font-size: 16px;">Choose to get the setup installed at cloud or your in-premise</p>
+
+                            <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="600">
+                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>How to create groups and link with Profiles?<i class="toggle-icon icon-line-circle-plus"></i></div>
+                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, fugiat iste nisi tempore nesciunt nemo fuga? Nesciunt, delectus laboriosam nisi repudiandae nam fuga saepe animi recusandae. Asperiores, provident, esse, doloremque, adipisci eaque alias dolore molestias assumenda quasi saepe nisi ab illo ex nesciunt nobis laboriosam iusto quia nulla ad voluptatibus iste beatae voluptas corrupti facilis accusamus recusandae sequi debitis reprehenderit quibusdam. Facilis eligendi a exercitationem nisi et placeat excepturi velit!</div>
+                            </div>
+
+                            <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="800">
+                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>How to Track Reviews<i class="toggle-icon icon-line-circle-plus"></i></div>
+                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, quisquam atque vero delectus corrupti! Quo, maiores, dolorem, hic commodi nulla ratione accusamus doloribus fuga magnam id temporibus dignissimos deleniti quidem ipsam corporis sapiente nam expedita saepe quas ab? Vero, assumenda.</div>
+                            </div>
+
+                            <div class="toggle toggle-bg" data-animate="fadeIn" data-delay="1000">
+                                <div class="togglet t400 rounded-top"><strong class="mr-1">Q.</strong>How can I use it for my work environment<i class="toggle-icon icon-line-circle-plus"></i></div>
+                                <div class="togglec rounded-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti laudantium eius, numquam mollitia delectus non illo error ea cumque minus eveniet soluta. Omnis atque necessitatibus consequatur voluptatum vitae iure, maxime, cumque minus, ipsa nemo, qui architecto officia unde ullam impedit.</div>
+                            </div>
                         </div>
+
+                        <div class="col-md-4">
+                            <a href="images/single/2.jpg" data-lightbox="image"><img src="images/single/thumbs/1.jpg" alt=""></a>
+                            <div class="clear"></div>
+                            <a href="images/single/6.jpg" data-lightbox="image"><img class="mt-5" src="images/single/thumbs/4.jpg" alt=""></a>
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>

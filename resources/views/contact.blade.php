@@ -118,25 +118,9 @@
                             <nav id="primary-menu" class="with-arrows fnone clearfix">
 
                                 <ul> 
-                                    <li><a href="#"><div>Why AskPls</div></a>
-                                        <ul>
-                                            <li><a href="/how-it-works"><div>How it works?</div></a></li>
-                                            <li><a href="/enterprises"><div>Enterprises</div></a></li> 
-                                            <li><a href="/customers"><div>Customers</div></a></li> 
-                                        </ul>
-                                    </li>
                                     <li><a href="/topics"><div>Topics</div></a></li>
-                                    <li><a href="#"><div>Solutions</div></a>
-                                        <ul>
-                                            <li><a href="/engineering"><div>Engineering</div></a></li>
-                                            <li><a href="/it"><div>IT</div></a></li>
-                                            <li><a href="/customer-support"><div>Customer Support</div></a></li>
-                                            <li><a href="/sales"><div>Sales</div></a></li>
-                                            <li><a href="/marketing"><div>Marketing</div></a></li>
-                                            <li><a href="/human-resources"><div>Human Resources</div></a></li>
-                                            <li><a href="/cxo"><div>CxO</div></a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="/solutions"><div>Solutions</div></a></li>
+                                    <li><a href="/why"><div>Why AskPls</div></a></li>
                                     <li><a href="/prices"><div>Prices</div></a></li>
                                     <li><a href="/faqs"><div>FAQs</div></a></li>
                                     <li><a href="/contact"><div>Contact</div></a></li>
@@ -163,53 +147,59 @@
 
         <!-- Slider
         ============================================= -->
-      
+        
 
         <!-- Content
         ============================================= -->
-        <section id="content" style="margin-top:-50px;">
+        <section id="content">
 
-            <div class="content-wrap notoppadding clearfix">
- 
-                <div class="container topmargin-lg bottommargin-lg clearfix">
+            <div class="content-wrap clearfix">
 
-                  
+                <div class="container">
 
-                </div> 
+                    <div class="contact-widget mt-5 divcenter" style="max-width: 750px">
 
-                <div class="container clearfix">
+                        <div class="contact-form-result"></div>
 
-                    <div class="emphasis-title center divcenter" style="max-width: 800px">
-                        <h2 class="font-secondary nott t700">1000 of companies using and satisfied...</h2>
-                    </div>
- 
-                    <div class="col_one_third nobottommargin">
-                        <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
-                            <div class="fbox-icon">
-                                <i class="icon-line2-home"></i>
+                        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="../../include/sendemail.php" method="post">
+
+                            <div class="form-process"></div>
+
+                            <div class="col_half">
+                                <label class="nott" for="template-contactform-name">Name <small>*</small></label>
+                                <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
                             </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Simple Pricing</h3>
-                            <p style="font-size: 16px;">Simple pricing based on users.</p>
-                        </div>
-                    </div>
-                    <div class="col_one_third nobottommargin">
-                        <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
-                            <div class="fbox-icon">
-                                <i class="icon-line2-compass"></i>
+
+                            <div class="col_half col_last">
+                                <label class="nott" for="template-contactform-email">Email <small>*</small></label>
+                                <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control" />
                             </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Secured Reviews</h3>
-                            <p style="font-size: 16px;">Choose to use your own mail server and keep it complete secure within your premises</p>
-                        </div>
-                    </div>
-                    <div class="col_one_third nobottommargin col_last">
-                        <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
-                            <div class="fbox-icon">
-                                <i class="icon-line2-directions"></i>
+
+                            <div class="clear"></div>
+
+                            <div class="col_full">
+                                <label class="nott" for="template-contactform-phone">Phone</label>
+                                <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control" />
                             </div>
-                            <h3 class="ls0 t400 nott" style="font-size: 20px;">Cloud or In-premise Setup</h3>
-                            <p style="font-size: 16px;">Choose to get the setup installed at cloud or your in-premise</p>
-                        </div>
+
+                            <div class="clear"></div>
+
+                            <div class="col_full">
+                                <label class="nott" for="template-contactform-message">Message <small>*</small></label>
+                                <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
+                            </div>
+
+                            <div class="col_full hidden">
+                                <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
+                            </div>
+
+                            <div class="col_full">
+                                <button class="button button-rounded button-large nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
+                            </div>
+
+                        </form>
                     </div>
+
                 </div>
 
             </div>
