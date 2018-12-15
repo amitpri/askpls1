@@ -24,9 +24,9 @@
     <div id="nova">
         <div v-cloak class="flex min-h-screen">
             <!-- Sidebar -->
-            <div class="min-h-screen flex-none pt-header min-h-screen w-sidebar bg-grad-sidebar px-6" style="">
-                <a href="{{ Nova::path() }}">
-                    <div class="absolute pin-t pin-l pin-r bg-logo flex items-center w-sidebar h-header px-6 text-white">
+            <div class="min-h-screen flex-none pt-header min-h-screen w-sidebar bg-grad-sidebar px-6" style="background-image: linear-gradient(0deg, white 0%, white 100%);">
+                <a href="../    ">
+                    <div class="absolute pin-t pin-l pin-r bg-white flex items-center w-sidebar h-header px-6 text-black">
                        @include('nova::partials.logo')
                     </div>
                 </a>
@@ -39,9 +39,7 @@
             <!-- Content -->
             <div class="content">
                 <div class="flex items-center relative shadow h-header bg-white z-20 px-6">
-                    <a href="{{ Config::get('nova.url') }}" class="no-underline dim font-bold text-90 mr-6">
-                        {{ Nova::name() }}
-                    </a>
+                     
 
                     @if (count(Nova::globallySearchableResources(request())) > 0)
                         <global-search></global-search>

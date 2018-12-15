@@ -44,7 +44,7 @@
 
         @if (Laravel\Nova\Nova::resetsPasswords())
         <div class="ml-auto">
-            <a class="text-primary dim font-bold no-underline" href="/portal/register">
+            <a class="text-primary dim font-bold no-underline" href="/register">
                 Register
             </a> | 
             <a class="text-primary dim font-bold no-underline" href="{{ route('nova.password.request') }}">

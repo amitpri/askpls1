@@ -4,7 +4,7 @@
     @foreach(Nova::groupedResources(request()) as $group => $resources)
         @if (count($resources) > 0)
             @if (count(Nova::groups(request())) > 1)
-                <h3 class="flex items-center font-normal text-white mb-4 text-base no-underline">
+                <h3 class="flex items-center font-normal text-black mb-4 text-base no-underline">
                     
                     <span class="sidebar-label">{{ $group }}</span>
                 </h3>
@@ -22,7 +22,7 @@
                             params: {
                                 resourceName: '{{ $resource::uriKey() }}'
                             }
-                        }" class="text-white text-justify no-underline dim">
+                        }" class="text-black text-justify no-underline dim">
                             {{ $resource::label() }}
                         </router-link>
                     </li>
