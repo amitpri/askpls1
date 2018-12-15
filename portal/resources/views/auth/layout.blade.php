@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('app.css', 'vendor/nova') }}">
 </head>
-<body class="bg-40 text-black h-full">
+<body class="bg-black text-black h-full">
     <div class="h-full">
         <div class="px-view py-view mx-auto">
             @yield('content')

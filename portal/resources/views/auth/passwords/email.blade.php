@@ -25,10 +25,10 @@
 
     <div class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}">
         <label class="block font-bold mb-2" for="email">{{ __('Email Address') }}</label>
-        <input class="form-control form-input form-input-bordered w-full" id="email" type="email" name="email" value="{{ old('email') }}" required>
+        <input class="form-control form-input form-input-bordered w-full rounded-none" id="email" type="email" name="email" value="{{ old('email') }}" required>
     </div>
 
-    <button class="w-full btn btn-default btn-primary hover:bg-primary-dark" type="submit">
+    <button class="w-full btn btn-default btn-primary hover:bg-primary-dark rounded-none" type="submit">
         {{ __('Send Password Reset Link') }}
     </button>
 </form>

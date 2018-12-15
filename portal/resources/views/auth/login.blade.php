@@ -5,7 +5,7 @@
 @include('nova::auth.partials.header')
 
 <form
-    class="bg-white shadow rounded-lg p-8 max-w-login mx-auto"
+    class="bg-white shadow p-8 max-w-login mx-auto"
     method="POST"
     action="{{ route('nova.login') }}"
 >
@@ -27,12 +27,12 @@
 
     <div class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}">
         <label class="block font-bold mb-2" for="email">{{ __('Email Address') }}</label>
-        <input class="form-control form-input form-input-bordered w-full" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+        <input class="form-control form-input form-input-bordered w-full rounded-none" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
     </div>
 
     <div class="mb-6 {{ $errors->has('password') ? ' has-error' : '' }}">
         <label class="block font-bold mb-2" for="password">{{ __('Password') }}</label>
-        <input class="form-control form-input form-input-bordered w-full" id="password" type="password" name="password" required>
+        <input class="form-control form-input form-input-bordered w-full rounded-none" id="password" type="password" name="password" required>
     </div>
 
     <div class="flex mb-6">
@@ -44,7 +44,7 @@
 
         @if (Laravel\Nova\Nova::resetsPasswords())
         <div class="ml-auto">
-            <a class="text-primary dim font-bold no-underline" href="../register">
+            <a class="text-primary dim font-bold no-underline" href="/portal/register">
                 Register
             </a> | 
             <a class="text-primary dim font-bold no-underline" href="{{ route('nova.password.request') }}">
@@ -54,7 +54,7 @@
         @endif
     </div>
 
-    <button class="w-full btn btn-default btn-primary hover:bg-primary-dark" type="submit">
+    <button class="w-full btn btn-default btn-primary hover:bg-primary-dark rounded-none" type="submit">
         {{ __('Login') }}
     </button>
 </form>

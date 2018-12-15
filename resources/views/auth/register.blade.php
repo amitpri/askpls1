@@ -1,84 +1,118 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en" class="h-full font-sans antialiased">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <title>{{ Nova::name() }}</title>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ mix('app.css', 'vendor/nova') }}">
+</head>
+<body class="bg-black text-black h-full">
+    <div class="h-full">
+        <div class="px-view py-view mx-auto">
+
+            <div class="mx-auto py-8 max-w-sm text-center text-90">
+
+                <a href="../../" style="text-decoration: none; color: white;">
+                    <h1 width="200", height="39">AskPls</h1> 
+                </a>
+             
+            </div>
+
+            <form class="bg-white shadow p-8 max-w-login mx-auto" method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right"><b>{{ __('Name') }}</b></label>
+                        <h2 class="text-2xl text-center font-normal mb-6 text-90">Please Register!</h2>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                        <div class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label class="block font-bold mb-2" for="name">{{ __('Name') }}</label>
+                            <input class="form-control form-input form-input-bordered w-full rounded-none {{ $errors->has('name') ? ' is-invalid' : '' }}" id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                            @if ($errors->has('name'))
+                                <span class="text-center font-semibold text-danger my-3" role="alert">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right"><b>{{ __('E-Mail Address') }}</b></label>
+                        <div class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label class="block font-bold mb-2" for="email">{{ __('E-Mail Address') }}</label> 
 
-                            <div class="col-md-6">
+                            @if ( old('email') )
 
-                                @if ( old('email') )
-
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                    <input id="email" type="email" class="form-control form-input form-input-bordered w-full rounded-none form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
                                 @else
 
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $req_emailid }}" required>
+                                    <input id="email" type="email" class="form-control form-input form-input-bordered w-full rounded-none form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $req_emailid }}" required>
 
                                 @endif
+
                                 @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-center font-semibold text-danger my-3" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+ 
                         </div>
+ 
+                       
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right"><b>{{ __('Password') }}</b></label>
+                        <div class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="password" class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}"><b>{{ __('Password') }}</b></label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                <input id="password" type="password" class="form-control form-input form-input-bordered w-full rounded-none form-control form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-center font-semibold text-danger my-3" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right"><b>{{ __('Confirm Password') }}</b></label>
+                        <div class="mb-6 {{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="password-confirm" class="mb-6"><b>{{ __('Confirm Password') }}</b></label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control form-input form-input-bordered w-full rounded-none form-control" name="password_confirmation" required>
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                        <div class="flex mb-6">
+                            <label class="flex items-center block text-xl font-bold">
+                                <input class="" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <span class="text-base ml-2">{{ __('Remember') }}</span>
+                            </label>
+
+
+                            @if (Laravel\Nova\Nova::resetsPasswords())
+                            <div class="ml-auto">
+                                <a class="text-primary dim font-bold no-underline" href="/login">
+                                    Login
+                                </a> | 
+                                <a class="text-primary dim font-bold no-underline" href="{{ route('nova.password.request') }}">
+                                    {{ __('Forgot Password?') }}
+                                </a>
                             </div>
+                            @endif
                         </div>
+
+                        <button class="w-full btn btn-default btn-primary hover:bg-primary-dark rounded-none" type="submit">
+                            {{ __('Register') }}
+                        </button>
                     </form>
-                </div>
-            </div>
+
         </div>
     </div>
-</div>
-@endsection
+</body>
+</html>
+
+
+ 
