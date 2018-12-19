@@ -1,10 +1,17 @@
 <?php
 
- 
+Route::domain('{account}.127.0.0.1')->group(function () {
+    Route::get('user/{id}', function ($account, $id) {
+        //
+    });
+}); 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/workspace', 'HomeController@workspace');
+Route::get('/workspace/get', 'HomeController@workspaceget');
 
 Route::get('/', 'IndexController@index');
 Route::get('/solutions', 'IndexController@solutions'); 

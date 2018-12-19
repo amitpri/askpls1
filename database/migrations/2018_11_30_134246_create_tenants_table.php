@@ -15,7 +15,8 @@ class CreateTenantsTable extends Migration
     {
         Schema::create('tenants', function (Blueprint $table) {
             $table->increments('id'); 
-            $table->string('name')->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->string('workspace')->nullable();
             $table->string('emailid')->nullable();
             $table->boolean('status')->default(0); 
             $table->timestamps();
