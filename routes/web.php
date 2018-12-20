@@ -12,6 +12,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/workspace', 'HomeController@workspace');
 Route::get('/workspace/get', 'HomeController@workspaceget');
+Route::get('/workspace/join/{id}/{workspace}', 'HomeController@workspacejoin');
+Route::get('/workspace/joined', 'HomeController@workspacejoined');
+Route::get('/workspace/create', 'HomeController@workspacecreate');
+Route::get('/workspace/created', 'HomeController@workspacecreated');
 
 Route::get('/', 'IndexController@index');
 Route::get('/solutions', 'IndexController@solutions'); 

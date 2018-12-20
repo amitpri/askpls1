@@ -17,8 +17,12 @@ class CreateTenantsTable extends Migration
             $table->increments('id'); 
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('workspace')->nullable();
+            $table->string('company')->nullable();
+            $table->string('city')->nullable();
+            $table->string('url')->nullable();
             $table->string('emailid')->nullable();
-            $table->boolean('status')->default(0); 
+            $table->integer('code')->unsigned();
+            $table->boolean('status')->default(1); 
             $table->timestamps();
         });
     }

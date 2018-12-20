@@ -8,20 +8,20 @@
     <!-- Stylesheets
     ============================================= -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Playfair+Display:700,700i,900" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="style.css" type="text/css" /> 
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/style.css" type="text/css" /> 
 
     <!-- Home Demo Specific Stylesheet -->
-    <link rel="stylesheet" href="demos/interior-design/interior-design.css" type="text/css" />
+    <link rel="stylesheet" href="/demos/interior-design/interior-design.css" type="text/css" />
 
-    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />  
+    <link rel="stylesheet" href="/css/font-icons.css" type="text/css" />  
 
     <!-- Reader's Blog Demo Specific Fonts -->
-    <link rel="stylesheet" href="demos/interior-design/css/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="/demos/interior-design/css/fonts.css" type="text/css" />
 
-    <link rel="stylesheet" href="css/responsive.css" type="text/css" />
+    <link rel="stylesheet" href="/css/responsive.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/colors.php?color=1c85e8" type="text/css" />
+    <link rel="stylesheet" href="/css/colors.php?color=1c85e8" type="text/css" />
 
     <script src="/vue/vue.min.js"></script>
     <script src="/axios/axios.min.js"></script>
@@ -54,8 +54,8 @@
                             <!-- Logo
                             ============================================= -->
                             <div id="logo">
-                                <a href="/" class="standard-logo"><img src="images/logo.png" alt="Canvas Logo"></a>
-                                <a href="/" class="retina-logo"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+                                <a href="/" class="standard-logo"><img src="/images/logo.png" alt="Canvas Logo"></a>
+                                <a href="/" class="retina-logo"><img src="/images/logo@2x.png" alt="Canvas Logo"></a>
                             </div><!-- #logo end -->
 
                         </div>
@@ -116,42 +116,28 @@
 
                     <div class="clearfix center divcenter" style="max-width: 800px;">
                         <div class="emphasis-title">
-                            <h1 class="font-secondary" style="color: black; font-size: 42px;    ">Create Workspace </h1>
-                            <p style="font-weight: 300; opacity: .7; color: black;  ">Get genuine anonymous Feedback from your team and improve your productivity</p>
+                            <a class="font-secondary" href="/workspace" style="color: black; font-size: 16px; text-align: left;">->Workspace-></a>
+                            <h1 class="font-secondary" style="color: black; font-size: 42px;    ">Join Workspace - {{ $workspace }}</h1>
+                            <p style="font-weight: 300; opacity: .7; color: black;  ">https://askpls.com/{{ $workspace }}</p>
                         </div>
        
-                        <form id="widget-subscribe-form" action="/register" role="form" method="get" class="nobottommargin"  >
-                            <div class="input-group divcenter">
-                                <input @keyup="get" v-model="inpWorkspace" type="text" id="workspace" name="workspace" class="form-control form-control-lg not-dark" placeholder="Enter workspace name.." style="border: 0; box-shadow: none; overflow: hidden;">
-                                <button type="submit" class="button " style="border-radius: 3px;">Search</button>  
+                        <form v-show="joinstatus != 1" id="widget-subscribe-form" action="/register" role="form" method="get" class="nobottommargin"  >
+                            <div class="  divcenter" >
+                                <input   v-model="inpCode" type="text" id="code" name="code" class="form-control form-control-lg not-dark" placeholder="Confirmation Code.." style="border: 0; box-shadow: none; overflow: hidden;">
+ 
+
+                                <button @click="join" type="submit" class="button " style="border-radius: 3px;">Join</button>  
                                  
                             </div>
+                              
                         </form>
 
+                        <p  ><h4 class="text-success" v-show="joinstatus === 1"> Congratulations!. You have joined the workspace and can now start using it</h4></p>
+
+                        <p  ><h4 class="text-danger" v-show="joinstatus === 0"> Error Occured. Please check details again.</h4></p>
+
                         <br>
-
-                        <table class="table"  v-if="showresult">
-                          <thead>
-                            <tr> 
-                              <th scope="col">Workspace Name</th>
-                              <th scope="col">&nbsp;</th> 
-                            </tr>
-                          </thead>
-                          <tbody v-if="workspaceLists.length  > 0">
-                            <tr v-for="workspaceList in workspaceLists"> 
-                              <td>@{{ workspaceList.workspace }}</td>
-                              <td><a :href="'/workspace/join/' + workspaceList.id + '/' + workspaceList.workspace">Join</a></td> 
-                            </tr>  
-                          </tbody>
-                          <tbody v-else>
-                            <tr> 
-                              <td>@{{ inpWorkspace }}</td>
-                              <td><a :href="'/workspace/create?name=' + inpWorkspace">Create</a></td>
-                            </tr>  
-                          </tbody>
-                        </table>
-
-            
+  
                       
                     </div>
 
@@ -196,44 +182,63 @@
 
     <!-- External JavaScripts
     ============================================= -->
-    <script src="js/jquery.js"></script>
-    <script src="js/plugins.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/plugins.js"></script>
 
     <!-- Footer Scripts
     ============================================= -->
-    <script src="js/functions.js"></script>
+    <script src="/js/functions.js"></script>
     <script>
         
         new Vue({
             el: '#workspace',
             data: {
-                inpWorkspace  : "", 
-                workspaceLists : [],
-                workspaceList : "",
-                 
+                inpWorkspace  : "{!! $workspace !!}", 
+                inpCode  : "", 
+                inpId  : "{!! $id !!}",  
+                workspacejoined : "",
+                joinstatus : "", 
                 disableaddbutton: false, 
                 showresult : false,
                 
             }, 
-            methods: {
+            methods: { 
+                join:function(event){
 
-                get:function(){
+                    event.preventDefault();
 
-                    this.showresult = true;
-                    axios.get('/workspace/get' ,{
+                    var c = confirm("Sure to Join?");   
 
-                        params: {
+                    if( c == true){  
 
-                            workspace: this.inpWorkspace,
+                        this.showresult = true;
+                        axios.get('/workspace/joined' ,{
+
+                            params: {
+
+                                workspace: this.inpWorkspace,
+                                id: this.inpId,
+                                code: this.inpCode,
+
+                                }
+
+                            })
+                        .then(response => {
+
+                            workspacejoined = response.data;
+
+                            if( workspacejoined === 1){
+
+                                this.joinstatus = 1;
+
+                            }else{
+
+                                this.joinstatus = 0;
 
                             }
-
-                        })
-                    .then(response => {
-
-                        this.workspaceLists = response.data;
-                        
-                    });
+                            
+                        });
+                    }
 
                 },
                     
